@@ -16,6 +16,7 @@ export type Product = {
   image: string;
   images?: string[];
   category: Category;
+  subcategory?: string;
   tags: string[];
   badge?: "new" | "bestseller" | "sale";
   rating: number;
@@ -34,34 +35,57 @@ export type Category =
   | "devices"
   | "sets";
 
+export type Subcategory = {
+  key: string;
+  en: string;
+  mn: string;
+};
+
 export const categories: Record<
   Category,
-  { en: string; mn: string; slug: string }
+  { en: string; mn: string; slug: string; subcategories: Subcategory[] }
 > = {
   skincare: {
     en: "Skincare",
-    mn: "\u0410\u0440\u044c\u0441 \u0430\u0440\u0447\u0438\u043b\u0433\u0430\u0430",
+    mn: "Арьс арчилгаа",
     slug: "skincare",
+    subcategories: [
+      { key: "cleansing", en: "Cleansing", mn: "Цэвэрлэгээ" },
+      { key: "care", en: "Care", mn: "Арчлах" },
+      { key: "cream", en: "Cream & SPF", mn: "Тос" },
+    ],
   },
   haircare: {
     en: "Haircare",
-    mn: "\u04ae\u0441\u043d\u0438\u0439 \u0430\u0440\u0447\u0438\u043b\u0433\u0430\u0430",
+    mn: "Үсний арчилгаа",
     slug: "haircare",
+    subcategories: [
+      { key: "shampoo", en: "Shampoo", mn: "Шампунь" },
+      { key: "scalp", en: "Scalp Care", mn: "Толгойн арьс" },
+    ],
   },
   makeup: {
     en: "Makeup",
-    mn: "\u041d\u04af\u04af\u0440\u043d\u0438\u0439 \u0431\u0443\u0434\u0430\u043b\u0442",
+    mn: "Нүүрний будалт",
     slug: "makeup",
+    subcategories: [
+      { key: "foundation", en: "Foundation", mn: "Үндэс" },
+    ],
   },
   devices: {
     en: "Devices",
-    mn: "\u0422\u04e9\u0445\u04e9\u04e9\u0440\u04e9\u043c\u0436",
+    mn: "Төхөөрөмж",
     slug: "devices",
+    subcategories: [
+      { key: "cleansing-device", en: "Cleansing Devices", mn: "Цэвэрлэгч төхөөрөмж" },
+      { key: "treatment-device", en: "Treatment Devices", mn: "Эмчилгээний төхөөрөмж" },
+    ],
   },
   sets: {
     en: "Sets & Gifts",
-    mn: "\u0411\u0430\u0433\u0446 & \u0411\u044d\u043b\u044d\u0433",
+    mn: "Багц & Бэлэг",
     slug: "sets",
+    subcategories: [],
   },
 };
 
@@ -83,6 +107,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/rexri-sun-cream.jpg",
     category: "skincare",
+    subcategory: "cream",
     tags: ["SPF", "UV Protection", "Daily"],
     badge: "bestseller",
     rating: 4.8,
@@ -118,6 +143,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/rexri-moisture-toner.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Hydrating", "Toner", "Plant-based"],
     badge: "new",
     rating: 4.6,
@@ -153,6 +179,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/rexri-glow-mask.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Sheet Mask", "Brightening", "Hydrating"],
     rating: 4.7,
     reviewCount: 203,
@@ -175,6 +202,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/keepkiss-water-mask.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Sheet Mask", "Moisturizing"],
     rating: 4.5,
     reviewCount: 156,
@@ -197,6 +225,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/keepkiss-repair-patches.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Medical", "Post-treatment", "Recovery"],
     rating: 4.9,
     reviewCount: 68,
@@ -219,6 +248,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/fucuishi-ceramide-mask.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Ceramide", "Barrier Repair", "Freeze Dried"],
     badge: "new",
     rating: 4.7,
@@ -242,6 +272,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/fucuishi-black-gold-mask.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Premium", "Revitalizing", "Anti-aging"],
     badge: "bestseller",
     rating: 4.8,
@@ -265,6 +296,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/yuyun-protecting-milk.jpg",
     category: "skincare",
+    subcategory: "cream",
     tags: ["Moisturizer", "Protection", "Gentle"],
     rating: 4.4,
     reviewCount: 53,
@@ -287,6 +319,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/xiuting-tianqi-mask.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Cream Mask", "Nourishing", "Protection"],
     rating: 4.3,
     reviewCount: 37,
@@ -310,6 +343,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/sunray-shampoo-blue.jpg",
     category: "haircare",
+    subcategory: "shampoo",
     tags: ["Anti-Dandruff", "Salon", "Professional"],
     badge: "bestseller",
     rating: 4.6,
@@ -333,6 +367,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/zheanji-scalp-solution.jpg",
     category: "haircare",
+    subcategory: "scalp",
     tags: ["Scalp Care", "Plant Extract", "Treatment"],
     rating: 4.5,
     reviewCount: 62,
@@ -356,6 +391,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/sunray-cushion-compact.jpg",
     category: "makeup",
+    subcategory: "foundation",
     tags: ["Foundation", "Cushion", "Dewy"],
     badge: "new",
     rating: 4.7,
@@ -379,6 +415,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/sunray-skin-scrubber.jpg",
     category: "devices",
+    subcategory: "cleansing-device",
     tags: ["Ultrasonic", "Deep Cleanse", "Professional"],
     badge: "bestseller",
     rating: 4.8,
@@ -401,6 +438,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/kskin-mist-sprayer.jpg",
     category: "devices",
+    subcategory: "treatment-device",
     tags: ["Portable", "Hydration", "Nano Mist"],
     rating: 4.4,
     reviewCount: 76,
@@ -422,6 +460,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/ems-beauty-device.jpg",
     category: "devices",
+    subcategory: "treatment-device",
     tags: ["EMS", "Sonic", "Professional"],
     rating: 4.6,
     reviewCount: 58,
@@ -443,6 +482,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/ipl-hair-removal.jpg",
     category: "devices",
+    subcategory: "treatment-device",
     tags: ["IPL", "Hair Removal", "Professional"],
     rating: 4.7,
     reviewCount: 43,
@@ -465,6 +505,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/young-sister-film-powder.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Salon", "Professional", "1kg"],
     rating: 4.5,
     reviewCount: 29,
@@ -511,6 +552,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/rexri-creative-toner.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Toner", "Premium", "Hydrating"],
     rating: 4.6,
     reviewCount: 55,
@@ -533,6 +575,7 @@ export const products: Product[] = [
     currency: "MNT",
     image: "/products/rexri-creative-serum.jpg",
     category: "skincare",
+    subcategory: "care",
     tags: ["Serum", "Treatment", "Premium"],
     rating: 4.7,
     reviewCount: 48,

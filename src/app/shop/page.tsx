@@ -19,21 +19,30 @@ function ShopContent() {
   const { t, locale } = useI18n();
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category") as Category | null;
+  const subParam = searchParams.get("sub");
 
   const [activeCategory, setActiveCategory] = useState<Category | "all">(
     categoryParam || "all"
+  );
+  const [activeSubcategory, setActiveSubcategory] = useState<string | null>(
+    subParam || null
   );
   const [sortBy, setSortBy] = useState<string>("featured");
 
   useEffect(() => {
     setActiveCategory(categoryParam || "all");
-  }, [categoryParam]);
+    setActiveSubcategory(subParam || null);
+  }, [categoryParam, subParam]);
 
   const filtered = useMemo(() => {
     let result =
       activeCategory === "all"
         ? products
         : products.filter((p) => p.category === activeCategory);
+
+    if (activeSubcategory) {
+      result = result.filter((p) => p.subcategory === activeSubcategory);
+    }
 
     switch (sortBy) {
       case "price-asc":
@@ -50,7 +59,11 @@ function ShopContent() {
     }
 
     return result;
-  }, [activeCategory, sortBy]);
+  }, [activeCategory, activeSubcategory, sortBy]);
+
+  const activeSubcategories = activeCategory !== "all"
+    ? categories[activeCategory].subcategories
+    : [];
 
   const categoryEntries = Object.entries(categories) as [
     Category,
@@ -67,9 +80,14 @@ function ShopContent() {
         <h1 className="mt-2 font-display text-3xl font-semibold text-navy md:text-4xl">
           {activeCategory === "all"
             ? t("nav.allProducts")
-            : locale === "mn"
-              ? categories[activeCategory].mn
-              : categories[activeCategory].en}
+            : activeSubcategory
+              ? (() => {
+                  const sub = categories[activeCategory].subcategories.find(s => s.key === activeSubcategory);
+                  return sub ? (locale === "mn" ? sub.mn : sub.en) : (locale === "mn" ? categories[activeCategory].mn : categories[activeCategory].en);
+                })()
+              : locale === "mn"
+                ? categories[activeCategory].mn
+                : categories[activeCategory].en}
         </h1>
         <p className="mt-2 text-sm text-gray-500">
           {filtered.length}{" "}
@@ -78,49 +96,80 @@ function ShopContent() {
       </FadeIn>
 
       {/* Filters */}
-      <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="flex flex-wrap gap-2">
-          <button
-            className={`min-h-[40px] rounded-full px-5 text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
-              activeCategory === "all"
-                ? "bg-navy text-white"
-                : "border border-gray-200 bg-white text-gray-600 hover:border-navy/30 hover:text-navy"
-            }`}
-            onClick={() => setActiveCategory("all")}
-          >
-            {t("filters.all")}
-          </button>
-          {categoryEntries.map(([key, cat]) => (
+      <div className="mb-10 flex flex-col gap-4">
+        <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-wrap gap-2">
             <button
-              key={key}
               className={`min-h-[40px] rounded-full px-5 text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
-                activeCategory === key
+                activeCategory === "all"
                   ? "bg-navy text-white"
                   : "border border-gray-200 bg-white text-gray-600 hover:border-navy/30 hover:text-navy"
               }`}
-              onClick={() => setActiveCategory(key)}
+              onClick={() => { setActiveCategory("all"); setActiveSubcategory(null); }}
             >
-              {locale === "mn" ? cat.mn : cat.en}
+              {t("filters.all")}
             </button>
-          ))}
+            {categoryEntries.map(([key, cat]) => (
+              <button
+                key={key}
+                className={`min-h-[40px] rounded-full px-5 text-xs font-medium uppercase tracking-wider transition-all duration-300 ${
+                  activeCategory === key
+                    ? "bg-navy text-white"
+                    : "border border-gray-200 bg-white text-gray-600 hover:border-navy/30 hover:text-navy"
+                }`}
+                onClick={() => { setActiveCategory(key); setActiveSubcategory(null); }}
+              >
+                {locale === "mn" ? cat.mn : cat.en}
+              </button>
+            ))}
+          </div>
+
+          <Select value={sortBy} onValueChange={setSortBy}>
+            <SelectTrigger className="h-10 min-w-[180px] rounded-full border border-gray-200 bg-white px-5 text-xs tracking-wide text-gray-600 shadow-none focus-visible:ring-gold/30">
+              <SelectValue placeholder={t("filters.sortBy")} />
+            </SelectTrigger>
+            <SelectContent className="rounded-xl border border-gray-100 bg-white shadow-lg">
+              <SelectItem value="featured" className="rounded-lg text-xs tracking-wide">{t("filters.sortBy")}</SelectItem>
+              <SelectItem value="price-asc" className="rounded-lg text-xs tracking-wide">{t("filters.priceLowHigh")}</SelectItem>
+              <SelectItem value="price-desc" className="rounded-lg text-xs tracking-wide">{t("filters.priceHighLow")}</SelectItem>
+              <SelectItem value="rating" className="rounded-lg text-xs tracking-wide">{t("filters.rating")}</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
-        <Select value={sortBy} onValueChange={setSortBy}>
-          <SelectTrigger className="h-10 min-w-[180px] rounded-full border border-gray-200 bg-white px-5 text-xs tracking-wide text-gray-600 shadow-none focus-visible:ring-gold/30">
-            <SelectValue placeholder={t("filters.sortBy")} />
-          </SelectTrigger>
-          <SelectContent className="rounded-xl border border-gray-100 bg-white shadow-lg">
-            <SelectItem value="featured" className="rounded-lg text-xs tracking-wide">{t("filters.sortBy")}</SelectItem>
-            <SelectItem value="price-asc" className="rounded-lg text-xs tracking-wide">{t("filters.priceLowHigh")}</SelectItem>
-            <SelectItem value="price-desc" className="rounded-lg text-xs tracking-wide">{t("filters.priceHighLow")}</SelectItem>
-            <SelectItem value="rating" className="rounded-lg text-xs tracking-wide">{t("filters.rating")}</SelectItem>
-          </SelectContent>
-        </Select>
+        {/* Subcategory filters */}
+        {activeSubcategories.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            <button
+              className={`min-h-[36px] rounded-full px-4 text-xs font-medium tracking-wide transition-all duration-300 ${
+                !activeSubcategory
+                  ? "bg-gold/15 text-navy border border-gold/30"
+                  : "border border-gray-200 bg-white text-gray-500 hover:border-gold/30 hover:text-navy"
+              }`}
+              onClick={() => setActiveSubcategory(null)}
+            >
+              {locale === "mn" ? "Бүгд" : "All"}
+            </button>
+            {activeSubcategories.map((sub) => (
+              <button
+                key={sub.key}
+                className={`min-h-[36px] rounded-full px-4 text-xs font-medium tracking-wide transition-all duration-300 ${
+                  activeSubcategory === sub.key
+                    ? "bg-gold/15 text-navy border border-gold/30"
+                    : "border border-gray-200 bg-white text-gray-500 hover:border-gold/30 hover:text-navy"
+                }`}
+                onClick={() => setActiveSubcategory(sub.key)}
+              >
+                {locale === "mn" ? sub.mn : sub.en}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Product grid */}
       <StaggerContainer
-        key={activeCategory + sortBy}
+        key={activeCategory + (activeSubcategory || "") + sortBy}
         className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 md:gap-8"
       >
         {filtered.map((product) => (

@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { useRef, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -9,19 +9,28 @@ import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   const { t } = useI18n();
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5;
+    }
+  }, []);
 
   return (
     <section className="relative min-h-[85vh] overflow-hidden bg-navy">
-      {/* Background image with parallax feel */}
+      {/* Background video */}
       <div className="absolute inset-0">
-        <Image
-          src="/hero/hero-main.png"
-          alt="Sunray Studio"
-          fill
-          className="object-cover object-center scale-105"
-          priority
-          sizes="100vw"
-        />
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover object-center scale-105"
+        >
+          <source src="/benner_video.mp4" type="video/mp4" />
+        </video>
         {/* Layered gradients for depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-navy/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-navy/30" />

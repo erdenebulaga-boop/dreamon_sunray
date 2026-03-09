@@ -18,7 +18,7 @@ export function ProductCard({ product }: { product: Product }) {
   const badgeConfig = {
     bestseller: {
       label: locale === "mn" ? "\u0411\u0435\u0441\u0442\u0441\u0435\u043b\u043b\u0435\u0440" : "Bestseller",
-      className: "bg-gold text-navy border-0",
+      className: "bg-gold text-white border-0",
     },
     new: {
       label: locale === "mn" ? "\u0428\u0438\u043d\u044d" : "New",

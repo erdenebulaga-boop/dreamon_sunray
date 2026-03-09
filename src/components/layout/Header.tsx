@@ -1,18 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ShoppingBag, Menu, Globe } from "lucide-react";
+import { ShoppingBag, Menu, Mail, Calendar, Phone, User, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useI18n } from "@/lib/i18n";
 import { useCart } from "@/lib/cart";
+import { useUser } from "@/lib/user";
 import { categories, type Category } from "@/data/products";
 
 export function Header() {
   const { t, locale, setLocale } = useI18n();
   const { totalItems, setIsOpen: setCartOpen } = useCart();
+  const { isLoggedIn, setIsOpen: setUserOpen } = useUser();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const navCategories = Object.entries(categories) as [
@@ -22,9 +24,29 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      {/* Announcement bar */}
-      <div className="bg-navy text-center text-xs tracking-wide text-gray-300 py-2.5 px-4">
-        <p>{locale === "mn" ? "Ажлын цаг: 09:00 - 18:00" : "Working hours: 09:00 - 18:00"}</p>
+      {/* Top info bar */}
+      <div className="bg-navy text-xs tracking-wide text-gray-300 py-2 px-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-2 md:px-8">
+          <div className="flex items-center gap-4">
+            <a href="mailto:info@sunray.mn" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Mail className="h-3.5 w-3.5" />
+              <span>info@sunray.mn</span>
+            </a>
+            <a href="mailto:sales@sunray.mn" className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
+              <span>sales@sunray.mn</span>
+            </a>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="hidden sm:flex items-center gap-1.5">
+              <Calendar className="h-3.5 w-3.5" />
+              {locale === "mn" ? "Даваа - Баасан: 9:00-18:00" : "Mon - Fri: 9:00-18:00"}
+            </span>
+            <a href="tel:+97698509999" className="flex items-center gap-1.5 hover:text-white transition-colors">
+              <Phone className="h-3.5 w-3.5" />
+              <span>9850-9999</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Main header */}
@@ -66,14 +88,29 @@ export function Header() {
                 </Link>
                 <div className="my-2 h-[1px] bg-gray-100" />
                 {navCategories.map(([key, cat]) => (
-                  <Link
-                    key={key}
-                    href={`/shop?category=${key}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="rounded-lg px-4 py-3 text-sm text-gray-600 hover:bg-cream hover:text-navy transition-colors"
-                  >
-                    {locale === "mn" ? cat.mn : cat.en}
-                  </Link>
+                  <div key={key}>
+                    <Link
+                      href={`/shop?category=${key}`}
+                      onClick={() => setMobileOpen(false)}
+                      className="rounded-lg px-4 py-3 text-sm font-medium text-navy hover:bg-cream transition-colors block"
+                    >
+                      {locale === "mn" ? cat.mn : cat.en}
+                    </Link>
+                    {cat.subcategories.length > 0 && (
+                      <div className="ml-4">
+                        {cat.subcategories.map((sub) => (
+                          <Link
+                            key={sub.key}
+                            href={`/shop?category=${key}&sub=${sub.key}`}
+                            onClick={() => setMobileOpen(false)}
+                            className="rounded-lg px-4 py-2.5 text-sm text-gray-500 hover:bg-cream hover:text-navy transition-colors block"
+                          >
+                            {locale === "mn" ? sub.mn : sub.en}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
                 <div className="my-2 h-[1px] bg-gray-100" />
                 <Link
@@ -108,13 +145,39 @@ export function Header() {
               {t("nav.shop")}
             </Link>
             {navCategories.map(([key, cat]) => (
-              <Link
-                key={key}
-                href={`/shop?category=${key}`}
-                className="rounded-md px-3 py-2 text-[13px] tracking-wide text-gray-500 hover:bg-cream hover:text-navy transition-colors"
-              >
-                {locale === "mn" ? cat.mn : cat.en}
-              </Link>
+              <div key={key} className="group relative">
+                <Link
+                  href={`/shop?category=${key}`}
+                  className="flex items-center gap-1 rounded-md px-3 py-2 text-[13px] tracking-wide text-gray-500 hover:bg-cream hover:text-navy transition-colors"
+                >
+                  {locale === "mn" ? cat.mn : cat.en}
+                  {cat.subcategories.length > 0 && (
+                    <ChevronDown className="h-3 w-3 opacity-50 transition-transform group-hover:rotate-180" />
+                  )}
+                </Link>
+                {cat.subcategories.length > 0 && (
+                  <div className="invisible absolute left-0 top-full z-50 min-w-[180px] pt-1 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                    <div className="rounded-xl border border-gray-100 bg-white py-1.5 shadow-lg">
+                      <Link
+                        href={`/shop?category=${key}`}
+                        className="block px-4 py-2.5 text-[13px] font-medium text-navy hover:bg-cream transition-colors"
+                      >
+                        {locale === "mn" ? "Бүгд" : "All"}
+                      </Link>
+                      <div className="mx-3 my-1 h-[1px] bg-gray-100" />
+                      {cat.subcategories.map((sub) => (
+                        <Link
+                          key={sub.key}
+                          href={`/shop?category=${key}&sub=${sub.key}`}
+                          className="block px-4 py-2.5 text-[13px] text-gray-600 hover:bg-cream hover:text-navy transition-colors"
+                        >
+                          {locale === "mn" ? sub.mn : sub.en}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
             <Link
               href="/about"
@@ -128,12 +191,22 @@ export function Header() {
           <div className="flex items-center gap-0.5">
             <Button
               variant="ghost"
-              size="icon"
-              className="h-11 w-11 text-gray-500 hover:text-navy hover:bg-cream"
+              className="h-11 min-w-[44px] px-2.5 text-xs font-semibold uppercase tracking-wider text-gray-500 hover:text-navy hover:bg-cream"
               onClick={() => setLocale(locale === "mn" ? "en" : "mn")}
               title={locale === "mn" ? "English" : "\u041c\u043e\u043d\u0433\u043e\u043b"}
             >
-              <Globe className="h-[18px] w-[18px]" />
+              {locale === "mn" ? "EN" : "MN"}
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="relative h-11 w-11 text-gray-500 hover:text-navy hover:bg-cream"
+              onClick={() => setUserOpen(true)}
+            >
+              <User className="h-[18px] w-[18px]" />
+              {isLoggedIn && (
+                <span className="absolute right-1.5 top-1.5 h-2 w-2 rounded-full bg-gold" />
+              )}
             </Button>
             <Button
               variant="ghost"

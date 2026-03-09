@@ -66,7 +66,7 @@ export default function ProductPage({
   const badgeConfig = {
     bestseller: {
       label: locale === "mn" ? "Бестселлер" : "Bestseller",
-      className: "bg-gold text-navy border-0",
+      className: "bg-gold text-white border-0",
     },
     new: {
       label: locale === "mn" ? "Шинэ" : "New",
