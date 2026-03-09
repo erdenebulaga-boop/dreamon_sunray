@@ -203,6 +203,16 @@ function HistoryView({ onBack, onSelectOrder }: { onBack: () => void; onSelectOr
   );
 }
 
+// ─── Info row helper ───
+function InfoRow({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="text-[11px] font-medium uppercase tracking-wider text-gray-400">{label}</p>
+      <p className="mt-0.5 text-sm text-gray-700">{value}</p>
+    </div>
+  );
+}
+
 // ─── Order Detail view ───
 function OrderDetailView({ order, onBack }: { order: Order; onBack: () => void }) {
   const { locale } = useI18n();
@@ -210,8 +220,8 @@ function OrderDetailView({ order, onBack }: { order: Order; onBack: () => void }
   const subtotal = order.lineItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const deliveryLabel = order.deliveryMethod === "fast"
-    ? (locale === "mn" ? "Шуурхай хүргэлт" : "Fast Delivery")
-    : (locale === "mn" ? "Энгийн хүргэлт" : "Normal Delivery");
+    ? (locale === "mn" ? "Шуурхай" : "Fast")
+    : (locale === "mn" ? "Энгийн" : "Normal");
 
   const paymentLabel: Record<string, string> = {
     QPay: "QPay",
@@ -219,22 +229,67 @@ function OrderDetailView({ order, onBack }: { order: Order; onBack: () => void }
     Loan: locale === "mn" ? "Зээл / Хуваалт" : "Loan / Installment",
   };
 
+  const ebarimtLabel: Record<string, string> = {
+    personal: locale === "mn" ? "Хувь хүн" : "Personal",
+    company: locale === "mn" ? "Байгууллага" : "Company",
+    taxpayer: locale === "mn" ? "Татвар төлөгч" : "Taxpayer",
+  };
+
   return (
     <div className="flex flex-1 flex-col">
       <SubViewHeader title={order.id} onBack={onBack} />
       <div className="flex-1 overflow-y-auto">
-        {/* Status & date */}
-        <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
-          <div>
-            <p className="text-xs text-gray-400">{order.date}</p>
-          </div>
+        {/* Status header */}
+        <div className="flex items-center justify-between bg-gray-50 px-6 py-3">
+          <span className="text-xs text-gray-500">{order.date}</span>
           <OrderStatusBadge status={order.status} locale={locale} />
+        </div>
+
+        {/* Order info grid */}
+        <div className="border-b border-gray-100 px-6 py-4">
+          <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+            {locale === "mn" ? "Захиалгын мэдээлэл" : "Order Info"}
+          </h4>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+            <InfoRow label={locale === "mn" ? "Нэр" : "Name"} value={order.buyerName} />
+            <InfoRow label={locale === "mn" ? "Утас" : "Phone"} value={order.buyerPhone} />
+            <InfoRow label={locale === "mn" ? "Имэйл" : "Email"} value={order.buyerEmail} />
+            <InfoRow label={locale === "mn" ? "Е-Баримт" : "E-Barimt"} value={ebarimtLabel[order.ebarimt]} />
+            {order.ebarimt === "company" && order.companyReg && (
+              <InfoRow label={locale === "mn" ? "Байгууллагын РД" : "Company Reg"} value={order.companyReg} />
+            )}
+            <InfoRow label={locale === "mn" ? "Төлбөр" : "Payment"} value={paymentLabel[order.paymentMethod] || order.paymentMethod} />
+          </div>
+        </div>
+
+        {/* Delivery grid */}
+        <div className="border-b border-gray-100 px-6 py-4">
+          <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
+            {locale === "mn" ? "Хүргэлт" : "Delivery"}
+          </h4>
+          <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+            <InfoRow label={locale === "mn" ? "Дүүрэг" : "District"} value={order.district} />
+            <InfoRow label={locale === "mn" ? "Хороо" : "Khoroo"} value={order.khoroo} />
+            <InfoRow label={locale === "mn" ? "Хүргэлтийн төрөл" : "Type"} value={deliveryLabel} />
+            <InfoRow
+              label={locale === "mn" ? "Хүргэлтийн төлбөр" : "Cost"}
+              value={order.deliveryCost === 0 ? (locale === "mn" ? "Үнэгүй" : "Free") : formatPrice(order.deliveryCost)}
+            />
+            <div className="col-span-2">
+              <InfoRow label={locale === "mn" ? "Хаяг" : "Address"} value={order.address} />
+            </div>
+            {order.notes && (
+              <div className="col-span-2">
+                <InfoRow label={locale === "mn" ? "Тэмдэглэл" : "Notes"} value={order.notes} />
+              </div>
+            )}
+          </div>
         </div>
 
         {/* Items */}
         <div className="border-b border-gray-100 px-6 py-4">
           <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
-            {locale === "mn" ? "Бүтээгдэхүүн" : "Items"}
+            {locale === "mn" ? "Бүтээгдэхүүн" : "Items"} ({order.items})
           </h4>
           <div className="space-y-3">
             {order.lineItems.map((item, i) => (
@@ -256,48 +311,22 @@ function OrderDetailView({ order, onBack }: { order: Order; onBack: () => void }
           </div>
         </div>
 
-        {/* Delivery info */}
-        <div className="border-b border-gray-100 px-6 py-4">
-          <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
-            {locale === "mn" ? "Хүргэлт" : "Delivery"}
-          </h4>
-          <div className="space-y-2.5">
-            <div className="flex items-center gap-2.5 text-sm text-gray-600">
-              <MapPin className="h-4 w-4 text-gray-400" />
-              <span>{order.district}</span>
-            </div>
-            <div className="flex items-center gap-2.5 text-sm text-gray-600">
-              <Truck className="h-4 w-4 text-gray-400" />
-              <span>{deliveryLabel}</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Payment info */}
-        <div className="border-b border-gray-100 px-6 py-4">
-          <h4 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-400">
-            {locale === "mn" ? "Төлбөр" : "Payment"}
-          </h4>
-          <div className="flex items-center gap-2.5 text-sm text-gray-600">
-            <CreditCard className="h-4 w-4 text-gray-400" />
-            <span>{paymentLabel[order.paymentMethod] || order.paymentMethod}</span>
-          </div>
-        </div>
-
         {/* Totals */}
-        <div className="px-6 py-4">
-          <div className="space-y-2">
-            <div className="flex items-center justify-between text-sm text-gray-500">
-              <span>{locale === "mn" ? "Дүн" : "Subtotal"}</span>
-              <span>{formatPrice(subtotal)}</span>
-            </div>
-            <div className="flex items-center justify-between text-sm text-gray-500">
-              <span>{locale === "mn" ? "Хүргэлт" : "Delivery"}</span>
-              <span>{order.deliveryCost === 0 ? (locale === "mn" ? "Үнэгүй" : "Free") : formatPrice(order.deliveryCost)}</span>
-            </div>
-            <div className="mt-2 flex items-center justify-between border-t border-gray-100 pt-3">
-              <span className="text-sm font-semibold text-navy">{locale === "mn" ? "Нийт" : "Total"}</span>
-              <span className="text-base font-bold text-navy">{formatPrice(order.total)}</span>
+        <div className="px-6 py-4 pb-8">
+          <div className="rounded-xl bg-gray-50 p-4">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between text-sm text-gray-500">
+                <span>{locale === "mn" ? "Дүн" : "Subtotal"}</span>
+                <span>{formatPrice(subtotal)}</span>
+              </div>
+              <div className="flex items-center justify-between text-sm text-gray-500">
+                <span>{locale === "mn" ? "Хүргэлт" : "Delivery"}</span>
+                <span>{order.deliveryCost === 0 ? (locale === "mn" ? "Үнэгүй" : "Free") : formatPrice(order.deliveryCost)}</span>
+              </div>
+              <div className="flex items-center justify-between border-t border-gray-200 pt-2.5 mt-1">
+                <span className="text-sm font-semibold text-navy">{locale === "mn" ? "Нийт" : "Total"}</span>
+                <span className="text-base font-bold text-navy">{formatPrice(order.total)}</span>
+              </div>
             </div>
           </div>
         </div>

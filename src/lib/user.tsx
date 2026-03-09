@@ -33,7 +33,15 @@ export type Order = {
   deliveryMethod: "normal" | "fast";
   deliveryCost: number;
   district: string;
+  khoroo: string;
+  address: string;
   paymentMethod: string;
+  buyerName: string;
+  buyerPhone: string;
+  buyerEmail: string;
+  ebarimt: "personal" | "company" | "taxpayer";
+  companyReg?: string;
+  notes?: string;
 };
 
 type UserContextType = {
@@ -68,7 +76,13 @@ const demoOrders: Order[] = [
     deliveryMethod: "fast",
     deliveryCost: 5000,
     district: "Сүхбаатар",
+    khoroo: "1-р хороо",
+    address: "Марко Поло Плаза, 5 давхар, 501 тоот",
     paymentMethod: "QPay",
+    buyerName: "Sunray User",
+    buyerPhone: "+976 9850 9999",
+    buyerEmail: "sunray@user.com",
+    ebarimt: "personal",
   },
   {
     id: "SRO-20260225",
@@ -82,7 +96,14 @@ const demoOrders: Order[] = [
     deliveryMethod: "normal",
     deliveryCost: 4000,
     district: "Баянгол",
+    khoroo: "16-р хороо",
+    address: "Гоёо ХХК, 3-р байр, 204 тоот",
     paymentMethod: "Card",
+    buyerName: "Sunray User",
+    buyerPhone: "+976 9850 9999",
+    buyerEmail: "sunray@user.com",
+    ebarimt: "company",
+    companyReg: "5023456",
   },
   {
     id: "SRO-20260210",
@@ -97,7 +118,14 @@ const demoOrders: Order[] = [
     deliveryMethod: "normal",
     deliveryCost: 5000,
     district: "Хан-Уул",
+    khoroo: "11-р хороо",
+    address: "Зайсан, 28-р байр, 1201 тоот",
     paymentMethod: "QPay",
+    buyerName: "Sunray User",
+    buyerPhone: "+976 9850 9999",
+    buyerEmail: "sunray@user.com",
+    ebarimt: "personal",
+    notes: "Хаалганы код: 1234",
   },
   {
     id: "SRO-20260115",
@@ -111,7 +139,13 @@ const demoOrders: Order[] = [
     deliveryMethod: "fast",
     deliveryCost: 0,
     district: "Чингэлтэй",
+    khoroo: "5-р хороо",
+    address: "Бага тойруу, Номин 2 байр, 302 тоот",
     paymentMethod: "Loan",
+    buyerName: "Sunray User",
+    buyerPhone: "+976 9850 9999",
+    buyerEmail: "sunray@user.com",
+    ebarimt: "taxpayer",
   },
 ];
 
