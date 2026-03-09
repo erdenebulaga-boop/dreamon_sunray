@@ -459,7 +459,7 @@ function AuthForm() {
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();
-    register({ firstName, lastName, email, phone }, password);
+    register({ firstName, lastName, email, phone, facebook: "" }, password);
   };
 
   if (view === "register") {
