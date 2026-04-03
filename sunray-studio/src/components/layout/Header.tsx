@@ -23,14 +23,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full">
       {/* Top info bar */}
-      <div className="bg-navy text-sm tracking-wide text-gray-300 py-2 px-4">
+      <div className="bg-gray-50 border-b border-gray-100 text-sm tracking-wide text-gray-500 py-2 px-4">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-2 md:px-8">
           <div className="flex items-center gap-4">
-            <a href="mailto:info@sunray.mn" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="mailto:info@sunray.mn" className="flex items-center gap-1.5 hover:text-gray-900 transition-colors">
               <Mail className="h-3.5 w-3.5" />
               <span>info@sunray.mn</span>
             </a>
-            <a href="mailto:sales@sunray.mn" className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="mailto:sales@sunray.mn" className="hidden sm:flex items-center gap-1.5 hover:text-gray-900 transition-colors">
               <span>sales@sunray.mn</span>
             </a>
           </div>
@@ -39,7 +39,7 @@ export function Header() {
               <Calendar className="h-3.5 w-3.5" />
               Даваа - Баасан: 9:00-18:00
             </span>
-            <a href="tel:+97698509999" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="tel:+97698509999" className="flex items-center gap-1.5 hover:text-gray-900 transition-colors">
               <Phone className="h-3.5 w-3.5" />
               <span>9850-9999</span>
             </a>
@@ -138,7 +138,7 @@ export function Header() {
           <nav className="hidden md:flex items-center gap-0.5">
             <Link
               href="/shop"
-              className="rounded-md px-3 py-2 text-base tracking-wide text-gray-500 hover:bg-cream hover:text-navy transition-colors"
+              className="rounded-md px-3 py-2 text-base font-semibold tracking-wide text-gray-700 hover:bg-cream hover:text-navy transition-colors"
             >
               Бүгд
             </Link>
@@ -146,7 +146,7 @@ export function Header() {
               <div key={key} className="group relative">
                 <Link
                   href={`/shop?category=${key}`}
-                  className="flex items-center gap-1 rounded-md px-3 py-2 text-base tracking-wide text-gray-500 hover:bg-cream hover:text-navy transition-colors"
+                  className="flex items-center gap-1 rounded-md px-3 py-2 text-base font-semibold tracking-wide text-gray-700 hover:bg-cream hover:text-navy transition-colors"
                 >
                   {cat.name}
                   {cat.subcategories.length > 0 && (

@@ -16,7 +16,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-[85vh] overflow-hidden bg-navy">
+    <section className="relative min-h-[85vh] overflow-hidden bg-white">
       {/* Background video */}
       <div className="absolute inset-0">
         <video
@@ -29,19 +29,24 @@ export function HeroSection() {
         >
           <source src="/benner_video.mp4" type="video/mp4" />
         </video>
-        {/* Layered gradients for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-navy/20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-navy/30" />
-        {/* Subtle grain texture */}
-        <div className="grain absolute inset-0" />
+        {/* Amber glow gradient — white top-center fading to warm amber at edges */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: "radial-gradient(125% 125% at 50% 10%, #ffffff 40%, #f59e0b 100%)",
+            opacity: 0.55,
+          }}
+        />
+        {/* Extra fade on left for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-transparent to-transparent" />
       </div>
 
-      {/* Decorative gold line */}
+      {/* Subtle bottom accent line */}
       <motion.div
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 1.2, delay: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="absolute bottom-0 left-0 right-0 h-[1px] origin-left bg-gradient-to-r from-gold via-gold-light to-transparent"
+        className="absolute bottom-0 left-0 right-0 h-[1px] origin-left bg-gradient-to-r from-gold/40 via-gold/20 to-transparent"
       />
 
       {/* Content */}
@@ -65,7 +70,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white md:text-6xl lg:text-7xl"
+            className="hero-text-gradient font-display text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl lg:text-7xl"
           >
             {"Мэргэжлийн гоо сайхан,\nТанд хүргэх".split("\n").map((line, i) => (
               <span key={i} className="block">
@@ -79,7 +84,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-6 max-w-lg text-base leading-relaxed text-gray-300/90 md:text-lg"
+            className="mt-6 max-w-lg text-base leading-relaxed text-gray-600 md:text-lg"
           >
             Салоны зэргийн арьс арчилгаа, үсний арчилгаа, гоо сайхны төхөөрөмжүүдийг Sunray Studio мэргэжилтнүүд сонгон танилцуулж байна.
           </motion.p>
@@ -94,7 +99,7 @@ export function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="group min-h-[52px] bg-gold px-8 text-sm font-semibold uppercase tracking-wider text-navy hover:bg-gold-light transition-all duration-300"
+              className="group min-h-[52px] bg-gold px-8 text-sm font-semibold uppercase tracking-wider text-white hover:bg-gold-dark transition-all duration-300"
             >
               <Link href="/shop">
                 Дэлгүүр үзэх
@@ -105,7 +110,7 @@ export function HeroSection() {
               asChild
               size="lg"
               variant="outline"
-              className="min-h-[52px] border-white/20 bg-transparent px-8 text-sm font-semibold uppercase tracking-wider text-white hover:border-gold/40 hover:bg-white/5 transition-all duration-300"
+              className="min-h-[52px] border-gray-300 bg-transparent px-8 text-sm font-semibold uppercase tracking-wider text-gray-900 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300"
             >
               <Link href="/shop?category=sets">Цуглуулга үзэх</Link>
             </Button>

@@ -9,7 +9,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-body);
   --font-mono: var(--font-body);
-  --font-display: var(--font-body);
+  --font-display: var(--font-heading, var(--font-body));
   --font-body: var(--font-body);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -49,13 +49,14 @@
   --radius-4xl: calc(var(--radius) + 16px);
 
   /* Sunray brand colors */
-  --color-navy: #0801A6;
-  --color-navy-light: #1A10C0;
-  --color-gold: #C8982E;
-  --color-gold-light: #D4AB4A;
-  --color-gold-dark: #A67C1E;
-  --color-cream: #FAF7F2;
-  --color-warm-gray: #F5F1EC;
+  --color-navy: #111827;
+  --color-navy-light: #1F2937;
+  --color-navy-dark: #030712;
+  --color-gold: #E8952E;
+  --color-gold-light: #F0A84A;
+  --color-gold-dark: #C97F1A;
+  --color-cream: #FAFAF8;
+  --color-warm-gray: #F5F5F3;
 }
 
 :root {
@@ -172,6 +173,29 @@ html {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   animation: shimmer 4s ease-in-out infinite;
+}
+
+/* Subtle hero text gradient — dark base with warm orange mesh */
+@keyframes hero-text-mesh {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero-text-gradient {
+  background: linear-gradient(
+    120deg,
+    #C97F1A 0%,
+    #E8952E 25%,
+    #D4A030 50%,
+    #E8B840 75%,
+    #C97F1A 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: hero-text-mesh 8s ease-in-out infinite;
 }
 
 /* Subtle grain texture overlay */

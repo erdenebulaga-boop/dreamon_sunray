@@ -21,13 +21,35 @@ export function CategoriesSection() {
   ][];
 
   return (
-    <section className="bg-cream py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
+    <section className="relative bg-white py-20 md:py-28 overflow-hidden">
+      {/* Wavy background decoration */}
+      <div className="pointer-events-none absolute inset-0">
+        <svg
+          className="absolute -top-1 left-0 w-full text-gold/[0.04]"
+          viewBox="0 0 1440 120"
+          fill="currentColor"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,0 L0,0 Z" />
+        </svg>
+        <svg
+          className="absolute -bottom-1 left-0 w-full text-gold/[0.04]"
+          viewBox="0 0 1440 120"
+          fill="currentColor"
+          preserveAspectRatio="none"
+        >
+          <path d="M0,60 C240,0 480,120 720,60 C960,0 1200,120 1440,60 L1440,120 L0,120 Z" />
+        </svg>
+        {/* Soft radial glow */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[800px] rounded-full bg-gold/[0.03] blur-3xl" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
         <FadeIn className="text-center mb-14">
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
             Ангилал
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-navy md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-gray-900 md:text-4xl">
             Ангилалаар харах
           </h2>
           <p className="mx-auto mt-3 max-w-md text-base text-gray-500">

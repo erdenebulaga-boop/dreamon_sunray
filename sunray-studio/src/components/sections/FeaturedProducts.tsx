@@ -14,7 +14,7 @@ export function FeaturedProducts() {
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
             Curated Selection
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-navy md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-gray-900 md:text-4xl">
             Онцлох бүтээгдэхүүн
           </h2>
           <p className="mx-auto mt-3 max-w-md text-base text-gray-500">

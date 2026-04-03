@@ -5,11 +5,9 @@ import { FadeIn } from "@/components/ui/motion";
 
 export function BrandStory() {
   return (
-    <section className="bg-navy relative overflow-hidden py-20 md:py-28">
-      {/* Subtle decorative element */}
+    <section className="bg-white relative overflow-hidden py-20 md:py-28">
+      {/* Subtle warm accent */}
       <div className="absolute -right-32 -top-32 h-64 w-64 rounded-full bg-gold/5 blur-3xl" />
-      <div className="absolute -left-32 -bottom-32 h-64 w-64 rounded-full bg-gold/5 blur-3xl" />
-      <div className="grain absolute inset-0" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-6 md:px-12">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
@@ -23,8 +21,7 @@ export function BrandStory() {
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
-              {/* Gold border accent */}
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/10" />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-200" />
             </div>
           </FadeIn>
 
@@ -34,13 +31,13 @@ export function BrandStory() {
               <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
                 Бидний түүх
               </span>
-              <h2 className="mt-4 font-display text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold text-gray-900 md:text-4xl lg:text-5xl">
                 Sunray Studio-ийн түүх
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-gray-400">
+              <p className="mt-6 text-base leading-relaxed text-gray-600">
                 Олон жилийн мэргэжлийн салоны туршлагаас үүссэн Sunray Studio нь өдөр бүр итгэн хэрэглэдэг чанартай бүтээгдэхүүнүүдийг танд хүргэж байна.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-gray-400">
+              <p className="mt-4 text-base leading-relaxed text-gray-600">
                 Премиум Солонгос арьс арчилгаанаас мэргэжлийн гоо сайхны төхөөрөмж хүртэл бид салоны эмчилгээ болон өдөр тутмын арчилгааны зайг болно.
               </p>
 
