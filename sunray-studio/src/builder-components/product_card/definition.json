@@ -1,0 +1,109 @@
+{
+  "name": "product_card",
+  "slug": "product-card",
+  "block": "1",
+  "version": "1.0.0",
+  "description": "E-commerce product card with image, brand, name, price, discount badge, and add-to-cart button",
+  "props": [
+    {
+      "key": "name",
+      "type": "string",
+      "group": "Content",
+      "label": "Product Name",
+      "required": false,
+      "description": "Product display name"
+    },
+    {
+      "key": "brand",
+      "type": "string",
+      "group": "Content",
+      "label": "Brand",
+      "required": false,
+      "description": "Brand name shown above the title"
+    },
+    {
+      "key": "image",
+      "type": "image",
+      "group": "Content",
+      "label": "Product Image",
+      "required": false,
+      "description": "Product image URL (square aspect ratio recommended)"
+    },
+    {
+      "key": "price",
+      "type": "string",
+      "group": "Pricing",
+      "label": "Price",
+      "required": false,
+      "description": "Current product price (formatted, e.g. 45,000₮)"
+    },
+    {
+      "key": "originalPrice",
+      "type": "string",
+      "group": "Pricing",
+      "label": "Original Price",
+      "required": false,
+      "description": "Strikethrough original price (leave empty if no discount)"
+    },
+    {
+      "key": "badge",
+      "type": "enum",
+      "group": "Style",
+      "label": "Badge",
+      "default": "none",
+      "options": [
+        "none",
+        "bestseller",
+        "new",
+        "sale"
+      ],
+      "required": false,
+      "description": "Badge type shown on the product image"
+    },
+    {
+      "key": "badgeText",
+      "type": "string",
+      "group": "Style",
+      "label": "Badge Text",
+      "required": false,
+      "description": "Custom badge text (overrides default badge label)"
+    },
+    {
+      "key": "link",
+      "type": "url",
+      "group": "CTA",
+      "label": "Product Link",
+      "required": false,
+      "description": "URL to the product detail page"
+    },
+    {
+      "key": "showCartButton",
+      "type": "enum",
+      "group": "Style",
+      "label": "Cart Button",
+      "default": "show",
+      "options": [
+        "show",
+        "hide"
+      ],
+      "required": false,
+      "description": "Show or hide the add-to-cart icon button"
+    }
+  ],
+  "variants": [],
+  "interactions": [],
+  "animations": {
+    "enter": {
+      "to": {
+        "opacity": 1,
+        "y": 0
+      },
+      "from": {
+        "opacity": 0,
+        "y": 12
+      },
+      "type": "tween",
+      "duration": 0.4
+    }
+  }
+}
