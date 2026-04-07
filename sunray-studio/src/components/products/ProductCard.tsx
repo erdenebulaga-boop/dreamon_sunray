@@ -67,7 +67,7 @@ export function ProductCard({ product }: { product: Product }) {
   };
 
   return (
-    <div className="group relative flex flex-col">
+    <div className="relative flex flex-col">
       {/* Image container */}
       <Link
         href={`/product/${product.slug}`}
@@ -77,12 +77,9 @@ export function ProductCard({ product }: { product: Product }) {
           src={product.image}
           alt={product.name}
           fill
-          className="object-cover transition-all duration-500 ease-out group-hover:scale-105"
+          className="object-cover"
           sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
         />
-
-        {/* Hover overlay */}
-        <div className="absolute inset-0 bg-navy/0 transition-all duration-300 group-hover:bg-navy/5" />
 
         {/* Badges + Countdown */}
         {(activeBadges.length > 0 || countdown) && (
@@ -104,24 +101,6 @@ export function ProductCard({ product }: { product: Product }) {
           </div>
         )}
 
-        {/* Quick add button */}
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            addItem(product);
-          }}
-          className={`absolute bottom-3 right-3 flex h-10 w-10 items-center justify-center rounded-full shadow-lg transition-all duration-300 ${
-            isInCart
-              ? "bg-navy text-white md:opacity-100 md:translate-y-0"
-              : "bg-white text-gray-900 md:opacity-0 md:translate-y-2 md:group-hover:opacity-100 md:group-hover:translate-y-0 hover:bg-navy hover:text-white active:bg-navy active:text-white"
-          }`}
-        >
-          {isInCart ? (
-            <Check className="h-4 w-4" strokeWidth={2.5} />
-          ) : (
-            <ShoppingBag className="h-4 w-4" />
-          )}
-        </button>
       </Link>
 
       {/* Product info */}
@@ -130,7 +109,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.brand}
         </p>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="text-base font-medium leading-snug text-gray-900 line-clamp-2 transition-colors duration-200 group-hover:text-navy">
+          <h3 className="text-base font-medium leading-snug text-gray-900 line-clamp-2">
             {product.name}
           </h3>
         </Link>
@@ -157,6 +136,28 @@ export function ProductCard({ product }: { product: Product }) {
             </>
           )}
         </div>
+
+        {/* Add to cart button */}
+        <button
+          onClick={() => addItem(product)}
+          className={`mt-3 flex w-full items-center justify-center gap-2 rounded-lg py-3 text-sm font-semibold transition-colors duration-200 ${
+            isInCart
+              ? "bg-navy text-white"
+              : "bg-gray-100 text-gray-900 hover:bg-navy hover:text-white active:bg-navy active:text-white"
+          }`}
+        >
+          {isInCart ? (
+            <>
+              <Check className="h-4 w-4" strokeWidth={2.5} />
+              Сагсанд нэмэгдсэн
+            </>
+          ) : (
+            <>
+              <ShoppingBag className="h-4 w-4" />
+              Сагсанд хийх
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

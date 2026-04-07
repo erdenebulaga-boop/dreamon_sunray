@@ -12,7 +12,7 @@ export function Footer() {
         <div className="mb-12 flex flex-col items-start gap-6 border-b border-gray-200 pb-12 md:flex-row md:items-center md:justify-between">
           <div>
             <Image
-              src="/logo-color.png"
+              src="/logo-gold.png"
               alt="Sunray Studio"
               width={180}
               height={60}
@@ -105,13 +105,18 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-gold" />
-                <span className="text-sm text-gray-500">
-                  Улаанбаатар, Монгол
-                </span>
+                <a
+                  href="https://maps.app.goo.gl/aFizyzm3whCvCRgh8"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-500 transition-colors duration-200 hover:text-gold"
+                >
+                  Улаанбаатар хот, Чингэлтэй дүүрэг, 4 хороо, Тэди төвийн хажууд Хишиг төв 4-р давхарт
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0 text-gold" />
-                <span className="text-sm text-gray-500">+976 9850 9999</span>
+                <span className="text-sm text-gray-500">+976 9850 9999, 9840 9999</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 flex-shrink-0 text-gold" />
