@@ -18,8 +18,8 @@ export function Footer() {
               height={60}
               className="h-12 w-auto"
             />
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-500">
-              Салоны зэргийн гоо сайхны бүтээгдэхүүн. Sunray Studio мэргэжилтнүүдийн сонголт.
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-gray-500">
+              Монгол улсынхаа хэрэглэгчдэд олон улсын дэвшилтэт гоо сайхны технологи, эмчилгээний бүтээгдэхүүнийг хүргэж, үр дүнд суурилсан мэргэжлийн үйлчилгээ үзүүлэх.
             </p>
           </div>
           <div className="flex gap-3">
@@ -58,8 +58,6 @@ export function Footer() {
             <ul className="space-y-3">
               {[
                 { href: "/shop", label: "Бүх бүтээгдэхүүн" },
-                { href: "/shop?category=skincare", label: "Арьс арчилгаа" },
-                { href: "/shop?category=devices", label: "Төхөөрөмж" },
                 { href: "/about", label: "Бидний тухай" },
               ].map((link) => (
                 <li key={link.href}>
@@ -111,7 +109,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-sm text-gray-500 transition-colors duration-200 hover:text-gold"
                 >
-                  Улаанбаатар хот, Чингэлтэй дүүрэг, 4 хороо, Тэди төвийн хажууд Хишиг төв 4-р давхарт
+                  Чингэлтэй дүүрэг 4-р хороо, гар утасны Tedy төвийн зүүн талд, Шинжлэх ухааны хүрээлэнгүүдийн II-р байрны урд үзүүрээр, байрнуудын голоор ороод "Хишиг төв"-ийн 4 давхарт байрлаж байна
                 </a>
               </li>
               <li className="flex items-center gap-3">

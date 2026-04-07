@@ -24,18 +24,6 @@ export function FeaturedProducts() {
           </h2>
         </FadeIn>
 
-        {/* Skin type filter tabs */}
-        <FadeIn className="mb-10 flex flex-wrap items-center justify-center gap-3">
-          {skinTypes.map((type) => (
-            <Link
-              key={type.label}
-              href={type.href}
-              className="rounded-full border border-gray-300 px-6 py-2.5 text-sm font-medium text-gray-700 transition-colors duration-200 hover:border-navy hover:bg-navy hover:text-white"
-            >
-              {type.label}
-            </Link>
-          ))}
-        </FadeIn>
 
         <StaggerContainer className="grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-8">
           {featured.map((product) => (

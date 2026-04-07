@@ -1,21 +1,6 @@
 import type { Metadata } from "next";
-import { DM_Sans, Istok_Web } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const istokWeb = Istok_Web({
-  subsets: ["latin", "cyrillic"],
-  variable: "--font-heading",
-  weight: ["400", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Sunray Studio | Professional Beauty Products",
@@ -30,8 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="mn">
-      <body
-        className={`${dmSans.variable} ${istokWeb.variable} font-body antialiased`}
+<body
+        className="antialiased"
       >
         <Providers>{children}</Providers>
       </body>

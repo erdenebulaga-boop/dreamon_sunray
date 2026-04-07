@@ -7,10 +7,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-body);
-  --font-mono: var(--font-body);
-  --font-display: var(--font-heading, var(--font-body));
-  --font-body: var(--font-body);
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: ui-monospace, monospace;
+  --font-display: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-body: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -52,9 +52,9 @@
   --color-navy: #111827;
   --color-navy-light: #1F2937;
   --color-navy-dark: #030712;
-  --color-gold: #E8952E;
-  --color-gold-light: #F0A84A;
-  --color-gold-dark: #C97F1A;
+  --color-gold: #FFCB00;
+  --color-gold-light: #FFD633;
+  --color-gold-dark: #E6B700;
   --color-cream: #FAFAF8;
   --color-warm-gray: #F5F5F3;
 }
@@ -185,11 +185,11 @@ html {
 .hero-text-gradient {
   background: linear-gradient(
     120deg,
-    #C97F1A 0%,
-    #E8952E 25%,
-    #D4A030 50%,
-    #E8B840 75%,
-    #C97F1A 100%
+    #E6B700 0%,
+    #FFCB00 25%,
+    #FFD633 50%,
+    #FFDB4D 75%,
+    #E6B700 100%
   );
   background-size: 300% 100%;
   -webkit-background-clip: text;

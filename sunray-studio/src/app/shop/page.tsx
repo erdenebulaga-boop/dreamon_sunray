@@ -94,17 +94,17 @@ function ShopContent() {
             <SelectTrigger className="order-first md:order-last h-10 min-w-[180px] w-fit rounded-full border border-gray-200 bg-white px-5 text-sm tracking-wide text-gray-600 shadow-none focus-visible:ring-gold/30">
               <SelectValue placeholder="Эрэмбэлэх" />
             </SelectTrigger>
-            <SelectContent className="rounded-xl border border-gray-100 bg-white shadow-lg">
-              <SelectItem value="featured" className="rounded-lg text-sm tracking-wide">Эрэмбэлэх</SelectItem>
-              <SelectItem value="price-asc" className="rounded-lg text-sm tracking-wide">Үнэ: Багаас их рүү</SelectItem>
-              <SelectItem value="price-desc" className="rounded-lg text-sm tracking-wide">Үнэ: Ихээс бага рүү</SelectItem>
-              <SelectItem value="rating" className="rounded-lg text-sm tracking-wide">Үнэлгээ өндөр</SelectItem>
+            <SelectContent className="rounded-2xl border border-gray-100 bg-white/95 backdrop-blur-xl p-1.5 shadow-xl shadow-black/[0.08]">
+              <SelectItem value="featured" className="rounded-xl px-4 py-2.5 text-sm tracking-wide text-gray-700 focus:bg-gray-50 focus:text-gray-900">Эрэмбэлэх</SelectItem>
+              <SelectItem value="price-asc" className="rounded-xl px-4 py-2.5 text-sm tracking-wide text-gray-700 focus:bg-gray-50 focus:text-gray-900">Үнэ: Багаас их рүү</SelectItem>
+              <SelectItem value="price-desc" className="rounded-xl px-4 py-2.5 text-sm tracking-wide text-gray-700 focus:bg-gray-50 focus:text-gray-900">Үнэ: Ихээс бага рүү</SelectItem>
+              <SelectItem value="rating" className="rounded-xl px-4 py-2.5 text-sm tracking-wide text-gray-700 focus:bg-gray-50 focus:text-gray-900">Үнэлгээ өндөр</SelectItem>
             </SelectContent>
           </Select>
 
-          <div className="flex gap-2 overflow-x-auto scrollbar-none -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap md:overflow-visible">
+          <div className="flex gap-2 overflow-x-auto scrollbar-none -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             <button
-              className={`min-h-[40px] flex-shrink-0 rounded-full px-5 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
+              className={`min-h-[44px] flex-shrink-0 rounded-full px-6 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                 activeCategory === "all"
                   ? "bg-navy text-white"
                   : "border border-gray-200 bg-white text-gray-600 hover:border-navy/30 hover:text-navy"
@@ -116,7 +116,7 @@ function ShopContent() {
             {categoryEntries.map(([key, cat]) => (
               <button
                 key={key}
-                className={`min-h-[40px] flex-shrink-0 rounded-full px-5 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
+                className={`min-h-[44px] flex-shrink-0 rounded-full px-6 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                   activeCategory === key
                     ? "bg-navy text-white"
                     : "border border-gray-200 bg-white text-gray-600 hover:border-navy/30 hover:text-navy"
@@ -129,22 +129,22 @@ function ShopContent() {
           </div>
         </div>
 
-        {/* Subcategory filters */}
+        {/* Subcategory filters — simple second row */}
         {activeSubcategories.length > 0 && (
-          <div className="flex flex-wrap gap-2">
+          <div className="flex gap-2 overflow-x-auto scrollbar-none -mx-6 px-6 md:mx-0 md:px-0 md:overflow-visible">
             {activeSubcategories.map((sub) => (
               <button
                 key={sub.key}
-                className={`min-h-[36px] rounded-full px-4 text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-1.5 ${
+                className={`min-h-[36px] flex-shrink-0 rounded-full px-5 text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-1.5 ${
                   activeSubcategory === sub.key
-                    ? "bg-gold/15 text-navy border border-gold/30"
-                    : "border border-gray-200 bg-white text-gray-500 hover:border-gold/30 hover:text-navy"
+                    ? "bg-navy text-white"
+                    : "border border-gray-200 bg-white text-gray-500 hover:border-navy/30 hover:text-navy"
                 }`}
                 onClick={() => setActiveSubcategory(activeSubcategory === sub.key ? null : sub.key)}
               >
                 {sub.name}
                 {activeSubcategory === sub.key && (
-                  <svg className="h-3.5 w-3.5 text-navy/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  <svg className="h-3.5 w-3.5 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 )}
               </button>
             ))}
