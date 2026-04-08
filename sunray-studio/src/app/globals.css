@@ -49,9 +49,9 @@
   --radius-4xl: calc(var(--radius) + 16px);
 
   /* Sunray brand colors */
-  --color-navy: #111827;
-  --color-navy-light: #1F2937;
-  --color-navy-dark: #030712;
+  --color-navy: #0E1F5D;
+  --color-navy-light: #1A2E6E;
+  --color-navy-dark: #091545;
   --color-gold: #FFCB00;
   --color-gold-light: #FFD633;
   --color-gold-dark: #E6B700;
@@ -69,8 +69,8 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.349 0.234 264.157);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.272 0.113 266.6);
+  --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
