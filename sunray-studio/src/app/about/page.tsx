@@ -110,7 +110,7 @@ export default function AboutPage() {
               </div>
               <h3 className="mt-5 text-lg font-semibold text-white">Зорилго</h3>
               <p className="mt-3 text-sm leading-relaxed text-gray-300">
-                Монгол улсынхаа хэрэглэгчдэд олон улсын дэвшилтэт гоо сайхны технологи, эмчилгээний бүтээгдэхүүнийг хүргэж, үр дүнд суурилсан мэргэжлийн үйлчилгээ үзүүлэх.
+                Монгол улсынхаа хэрэглэгчдэд олон улсын дэвшилтэт гоо сайхны технологи, эмчилгээний бүтээгдэхүүнийг хүргэж, үр дүнд суурилсан мэргэжлийн үйлчилгээ үзүүлнэ.
               </p>
             </div>
             <div className="rounded-2xl border border-gold/30 bg-gold/10 p-8">
