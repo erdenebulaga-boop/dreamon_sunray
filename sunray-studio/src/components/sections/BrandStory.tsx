@@ -40,24 +40,6 @@ export function BrandStory() {
               <p className="mt-4 text-base leading-relaxed text-gray-600">
                 Манай байгууллага нь 2026 онд тохирлын гэрчилгээ авч, үйлчилгээ, бүтээгдэхүүн, үйл ажиллагаа нь стандарт, аюулгүй байдлын шаардлагыг бүрэн хангаж байгааг баталгаажуулсан.
               </p>
-
-              {/* Stats */}
-              <div className="mt-10 grid grid-cols-3 gap-8">
-                {[
-                  { value: "500+", label: "Сэтгэгдэл" },
-                  { value: "20+", label: "Бүтээгдэхүүн" },
-                  { value: "5+", label: "Брэнд" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <p className="font-display text-3xl font-semibold text-gold md:text-4xl">
-                      {stat.value}
-                    </p>
-                    <p className="mt-1 text-sm uppercase tracking-wider text-gray-500">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
             </div>
           </FadeIn>
         </div>
