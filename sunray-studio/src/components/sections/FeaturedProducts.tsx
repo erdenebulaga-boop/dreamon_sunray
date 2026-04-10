@@ -16,10 +16,10 @@ export function FeaturedProducts() {
   const featured = getFeaturedProducts();
 
   return (
-    <section className="bg-white py-20 md:py-28">
+    <section className="bg-[#111827] py-20 md:py-25">
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <FadeIn className="text-center mb-10">
-          <h2 className="font-display text-3xl font-semibold text-gray-900 md:text-4xl">
+          <h2 className="font-display text-3xl font-semibold text-gray-100 md:text-4xl">
             Онцлох бүтээгдэхүүн
           </h2>
         </FadeIn>

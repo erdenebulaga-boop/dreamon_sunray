@@ -35,7 +35,7 @@ export default function NotFound() {
         </Link>
         <Link
           href="/shop"
-          className="inline-flex min-h-[48px] items-center rounded-xl border border-gray-200 px-8 text-sm font-medium text-gray-700 transition-colors hover:border-navy/30 hover:text-navy"
+          className="inline-flex min-h-[48px] items-center rounded-xl border border-white/20 px-8 text-sm font-medium text-gray-300 transition-colors hover:border-gold/30 hover:text-white"
         >
           Дэлгүүр
         </Link>

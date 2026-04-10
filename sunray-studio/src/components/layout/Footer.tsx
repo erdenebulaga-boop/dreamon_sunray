@@ -6,10 +6,10 @@ import { Instagram, Phone, Mail, MapPin, Facebook } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="relative bg-gray-50 overflow-hidden">
+    <footer className="relative bg-[#0D1520] overflow-hidden">
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-16 pb-8 md:px-12 md:pt-20">
         {/* Top: Logo + Social */}
-        <div className="mb-12 flex flex-col items-start gap-6 border-b border-gray-200 pb-12 md:flex-row md:items-center md:justify-between">
+        <div className="mb-12 flex flex-col items-start gap-6 border-b border-white/10 pb-12 md:flex-row md:items-center md:justify-between">
           <div>
             <Image
               src="/logo-gold.png"
@@ -27,7 +27,7 @@ export function Footer() {
               href="https://www.facebook.com/sunraybeautysalon"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-gray-400 transition-all duration-300 hover:border-gold hover:text-gold"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-gold hover:text-gold"
             >
               <Facebook className="h-4 w-4" />
             </a>
@@ -35,13 +35,13 @@ export function Footer() {
               href="https://www.instagram.com/sn_eyebrowtattoo/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-gray-400 transition-all duration-300 hover:border-gold hover:text-gold"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-gold hover:text-gold"
             >
               <Instagram className="h-4 w-4" />
             </a>
             <a
               href="tel:+97698509999"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-gray-400 transition-all duration-300 hover:border-gold hover:text-gold"
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-gray-400 transition-all duration-300 hover:border-gold hover:text-gold"
             >
               <Phone className="h-4 w-4" />
             </a>
@@ -52,7 +52,7 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
           {/* Quick Links */}
           <div>
-            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-900">
+            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-100">
               Түргэн холбоос
             </h3>
             <ul className="space-y-3">
@@ -74,7 +74,7 @@ export function Footer() {
 
           {/* Customer Service */}
           <div>
-            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-900">
+            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-100">
               Хэрэглэгчийн үйлчилгээ
             </h3>
             <ul className="space-y-3">
@@ -97,7 +97,7 @@ export function Footer() {
 
           {/* Contact */}
           <div className="col-span-2 md:col-span-2">
-            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-900">
+            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.15em] text-gray-100">
               Холбоо барих
             </h3>
             <ul className="space-y-4">
@@ -127,7 +127,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 border-t border-gray-200 pt-6 text-center">
+        <div className="mt-12 border-t border-white/10 pt-6 text-center">
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Sunray Studio.{" "}
             Бүх эрх хуульд хамгаалагдсан.

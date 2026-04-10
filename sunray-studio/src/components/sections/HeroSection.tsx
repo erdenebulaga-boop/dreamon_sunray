@@ -29,7 +29,7 @@ export function HeroSection() {
   }, [swiperRef]);
 
   return (
-    <section className="relative min-h-[85vh] overflow-hidden bg-white">
+    <section className="relative min-h-[85vh] overflow-hidden bg-[#111827]">
       <Swiper
         onSwiper={setSwiperRef}
         modules={[Autoplay, EffectFade]}

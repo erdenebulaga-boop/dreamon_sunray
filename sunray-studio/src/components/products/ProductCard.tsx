@@ -109,7 +109,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.brand}
         </p>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="text-base font-medium leading-snug text-gray-900 line-clamp-2">
+          <h3 className="text-base font-medium leading-snug text-gray-100 line-clamp-2">
             {product.name}
           </h3>
         </Link>
@@ -143,7 +143,7 @@ export function ProductCard({ product }: { product: Product }) {
           className={`mt-3 flex w-full items-center justify-center gap-2 rounded-lg py-3 text-sm font-semibold transition-colors duration-200 ${
             isInCart
               ? "bg-navy text-white"
-              : "bg-gray-100 text-gray-900 hover:bg-navy hover:text-white active:bg-navy active:text-white"
+              : "bg-white/10 text-gray-100 hover:bg-navy hover:text-white active:bg-navy active:text-white"
           }`}
         >
           {isInCart ? (

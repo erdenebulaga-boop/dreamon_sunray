@@ -97,7 +97,7 @@ export default function ProductPage({
             {categoryLabel}
           </Link>
           <span>/</span>
-          <span className="text-gray-700">{product.name}</span>
+          <span className="text-gray-300">{product.name}</span>
         </div>
       </FadeIn>
 
@@ -196,7 +196,7 @@ export default function ProductPage({
             </h1>
 
             {/* SKU */}
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-gray-400">
               SKU: <span className="font-medium">{sku}</span>
             </p>
 
@@ -226,14 +226,14 @@ export default function ProductPage({
             </div>
 
             {/* Short Description */}
-            <p className="mt-3 text-sm text-gray-500">
+            <p className="mt-3 text-sm text-gray-400">
               {product.shortDescription}
             </p>
 
             {/* Size */}
             {product.size && (
               <div className="mt-6">
-                <p className="text-sm font-semibold uppercase tracking-wider text-gray-700">
+                <p className="text-sm font-semibold uppercase tracking-wider text-gray-300">
                   Хэмжээ
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2">
@@ -247,7 +247,7 @@ export default function ProductPage({
             {/* Quantity + Add to Cart + Buy Now */}
             <div className="mt-8 flex flex-wrap items-center gap-3">
               {/* Quantity */}
-              <div className="flex h-12 items-center rounded-xl border border-gray-200">
+              <div className="flex h-12 items-center rounded-xl border border-white/20">
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
                   className="flex h-full w-11 items-center justify-center text-gray-500 transition-colors hover:text-navy"
@@ -270,7 +270,7 @@ export default function ProductPage({
                 onClick={() => {
                   for (let i = 0; i < quantity; i++) addItem(product);
                 }}
-                className="h-12 min-w-[160px] rounded-xl border-2 border-navy bg-white px-6 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-white"
+                className="h-12 min-w-[160px] rounded-xl border-2 border-gold bg-transparent px-6 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-white"
               >
                 <ShoppingBag className="mr-2 h-4 w-4" />
                 Сагсанд нэмэх
@@ -301,7 +301,7 @@ export default function ProductPage({
             )}
 
             {/* Meta info */}
-            <div className="mt-8 space-y-2.5 border-t border-gray-100 pt-6">
+            <div className="mt-8 space-y-2.5 border-t border-white/10 pt-6">
               <p className="text-sm text-gray-500">
                 <span className="font-medium text-gray-700">
                   Брэнд:
@@ -310,7 +310,7 @@ export default function ProductPage({
               </p>
               {/* Tags */}
               <div className="flex flex-wrap items-center gap-1.5">
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium text-gray-300">
                   Шошго:
                 </span>
                 {product.tags.map((tag, idx) => (
@@ -322,10 +322,10 @@ export default function ProductPage({
               </div>
               {/* Share */}
               <div className="flex items-center gap-3 pt-1">
-                <span className="text-sm font-medium text-gray-700">
+                <span className="text-sm font-medium text-gray-300">
                   Хуваалцах:
                 </span>
-                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 text-gray-400 transition-colors hover:border-navy hover:text-navy">
+                <button className="flex h-8 w-8 items-center justify-center rounded-full border border-white/20 text-gray-400 transition-colors hover:border-gold hover:text-gold">
                   <Share2 className="h-3.5 w-3.5" />
                 </button>
               </div>
@@ -343,10 +343,10 @@ export default function ProductPage({
               label: "Тайлбар",
               content: (
                 <div className="max-w-3xl space-y-4">
-                  <p className="text-base leading-relaxed text-gray-700">
+                  <p className="text-base leading-relaxed text-gray-300">
                     {product.description}
                   </p>
-                  <p className="text-base leading-relaxed text-gray-500">
+                  <p className="text-base leading-relaxed text-gray-400">
                     Бүтээгдэхүүний заавраас дэлгэрэнгүй мэдээллийг аваарай. Хэрэглэхийн өмнө арьсны тестийг хийхийг зөвлөж байна.
                   </p>
                 </div>
@@ -358,9 +358,9 @@ export default function ProductPage({
               content: (
                 <div className="max-w-3xl space-y-4">
                   {product.howToUse ? (
-                    <p className="text-base leading-relaxed text-gray-700">{product.howToUse}</p>
+                    <p className="text-base leading-relaxed text-gray-300">{product.howToUse}</p>
                   ) : (
-                    <p className="text-base leading-relaxed text-gray-500">Бүтээгдэхүүний савны заавраас дэлгэрэнгүй мэдээллийг аваарай.</p>
+                    <p className="text-base leading-relaxed text-gray-400">Бүтээгдэхүүний савны заавраас дэлгэрэнгүй мэдээллийг аваарай.</p>
                   )}
                 </div>
               ),
@@ -371,24 +371,24 @@ export default function ProductPage({
               content: (
                 <div className="max-w-3xl space-y-4">
                   {product.ingredients ? (
-                    <p className="text-base leading-relaxed text-gray-700">{product.ingredients}</p>
+                    <p className="text-base leading-relaxed text-gray-300">{product.ingredients}</p>
                   ) : (
                     <div className="max-w-2xl">
                       <table className="w-full text-base">
-                        <tbody className="divide-y divide-gray-100">
+                        <tbody className="divide-y divide-white/10">
                           <tr>
-                            <td className="w-40 py-3 font-medium text-gray-700">Брэнд</td>
-                            <td className="py-3 text-gray-600">{product.brand}</td>
+                            <td className="w-40 py-3 font-medium text-gray-300">Брэнд</td>
+                            <td className="py-3 text-gray-400">{product.brand}</td>
                           </tr>
                           {product.size && (
                             <tr>
-                              <td className="py-3 font-medium text-gray-700">Хэмжээ</td>
-                              <td className="py-3 text-gray-600">{product.size}</td>
+                              <td className="py-3 font-medium text-gray-300">Хэмжээ</td>
+                              <td className="py-3 text-gray-400">{product.size}</td>
                             </tr>
                           )}
                           <tr>
-                            <td className="py-3 font-medium text-gray-700">Ангилал</td>
-                            <td className="py-3 text-gray-600">{categoryLabel}</td>
+                            <td className="py-3 font-medium text-gray-300">Ангилал</td>
+                            <td className="py-3 text-gray-400">{categoryLabel}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -403,9 +403,9 @@ export default function ProductPage({
               content: (
                 <div className="max-w-3xl space-y-4">
                   {product.storage ? (
-                    <p className="text-base leading-relaxed text-gray-700">{product.storage}</p>
+                    <p className="text-base leading-relaxed text-gray-300">{product.storage}</p>
                   ) : (
-                    <p className="text-base leading-relaxed text-gray-500">Сэрүүн, хуурай газар, нарны шууд тусгалаас зайлсхийж хадгална.</p>
+                    <p className="text-base leading-relaxed text-gray-400">Сэрүүн, хуурай газар, нарны шууд тусгалаас зайлсхийж хадгална.</p>
                   )}
                 </div>
               ),
@@ -416,7 +416,7 @@ export default function ProductPage({
             <>
               {/* Desktop: horizontal tabs */}
               <div className="hidden md:block">
-                <div className="flex gap-0 border-b border-gray-200">
+                <div className="flex gap-0 border-b border-white/10">
                   {tabs.map((tab) => (
                     <button
                       key={tab.key}
@@ -438,16 +438,16 @@ export default function ProductPage({
               </div>
 
               {/* Mobile: accordion */}
-              <div className="md:hidden space-y-0 border-t border-gray-200">
+              <div className="md:hidden space-y-0 border-t border-white/10">
                 {tabs.map((tab) => {
                   const isOpen = activeTab === tab.key;
                   return (
-                    <div key={tab.key} className="border-b border-gray-200">
+                    <div key={tab.key} className="border-b border-white/10">
                       <button
                         onClick={() => setActiveTab(isOpen ? ("" as typeof activeTab) : tab.key)}
                         className="flex w-full items-center justify-between py-4 text-left"
                       >
-                        <span className={`text-base font-medium transition-colors ${isOpen ? "text-navy" : "text-gray-700"}`}>
+                        <span className={`text-base font-medium transition-colors ${isOpen ? "text-gold" : "text-gray-300"}`}>
                           {tab.label}
                         </span>
                         <ChevronDown className={`h-4 w-4 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} />
@@ -471,7 +471,7 @@ export default function ProductPage({
 
       {/* Related products */}
       {related.length > 0 && (
-        <div className="mt-8 border-t border-gray-100 pt-16 md:pt-24">
+        <div className="mt-8 border-t border-white/10 pt-16 md:pt-24">
           <FadeIn>
             <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
               Танд бас таалагдах

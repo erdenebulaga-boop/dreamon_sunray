@@ -140,7 +140,7 @@ export function ProductComments({ productId }: { productId: string }) {
 
   return (
     <FadeIn>
-      <div className="mt-8 border-t border-gray-100 pt-16 md:pt-24">
+      <div className="mt-8 border-t border-white/10 pt-16 md:pt-24">
         {/* Header */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
@@ -152,7 +152,7 @@ export function ProductComments({ productId }: { productId: string }) {
             </h2>
             <div className="mt-3 flex items-center gap-3">
               <StarRating rating={Math.round(avgRating)} />
-              <span className="text-sm font-medium text-gray-700">
+              <span className="text-sm font-medium text-gray-300">
                 {avgRating.toFixed(1)}
               </span>
               <span className="text-sm text-gray-400">
@@ -163,7 +163,7 @@ export function ProductComments({ productId }: { productId: string }) {
 
           <Button
             onClick={() => setShowForm(!showForm)}
-            className="h-12 rounded-xl border-2 border-navy bg-white px-6 text-sm font-semibold text-navy transition-colors hover:bg-navy hover:text-white w-fit"
+            className="h-12 rounded-xl border-2 border-gold bg-transparent px-6 text-sm font-semibold text-gold transition-colors hover:bg-gold hover:text-white w-fit"
           >
             <MessageCircle className="mr-2 h-4 w-4" />
             Сэтгэгдэл бичих
@@ -181,7 +181,7 @@ export function ProductComments({ productId }: { productId: string }) {
         {showForm && (
           <form
             onSubmit={handleSubmit}
-            className="mt-8 rounded-2xl border border-gray-200 bg-gray-50/50 p-6 md:p-8"
+            className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
           >
             <h3 className="text-base font-semibold text-navy">
               Сэтгэгдэл үлдээх
@@ -189,7 +189,7 @@ export function ProductComments({ productId }: { productId: string }) {
 
             {/* Rating */}
             <div className="mt-5">
-              <label className="text-sm font-semibold uppercase tracking-wider text-gray-700">
+              <label className="text-sm font-semibold uppercase tracking-wider text-gray-300">
                 Үнэлгээ
               </label>
               <div className="mt-2">
@@ -206,7 +206,7 @@ export function ProductComments({ productId }: { productId: string }) {
             <div className="mt-5">
               <label
                 htmlFor="comment-name"
-                className="text-sm font-semibold uppercase tracking-wider text-gray-700"
+                className="text-sm font-semibold uppercase tracking-wider text-gray-300"
               >
                 Нэр
               </label>
@@ -225,7 +225,7 @@ export function ProductComments({ productId }: { productId: string }) {
             <div className="mt-5">
               <label
                 htmlFor="comment-text"
-                className="text-sm font-semibold uppercase tracking-wider text-gray-700"
+                className="text-sm font-semibold uppercase tracking-wider text-gray-300"
               >
                 Сэтгэгдэл
               </label>
@@ -251,7 +251,7 @@ export function ProductComments({ productId }: { productId: string }) {
               <Button
                 type="button"
                 onClick={() => setShowForm(false)}
-                className="h-12 rounded-xl border border-gray-200 bg-white px-6 text-sm font-medium text-gray-600 hover:bg-gray-50"
+                className="h-12 rounded-xl border border-white/20 bg-transparent px-6 text-sm font-medium text-gray-400 hover:bg-white/5"
               >
                 Болих
               </Button>
@@ -260,7 +260,7 @@ export function ProductComments({ productId }: { productId: string }) {
         )}
 
         {/* Comments list */}
-        <div className="mt-10 space-y-0 divide-y divide-gray-100">
+        <div className="mt-10 space-y-0 divide-y divide-white/10">
           {comments.map((comment) => (
             <div key={comment.id} className="py-6 first:pt-0">
               <div className="flex items-start gap-4">
@@ -272,7 +272,7 @@ export function ProductComments({ productId }: { productId: string }) {
                 <div className="flex-1 min-w-0">
                   {/* Name + date */}
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-                    <span className="text-sm font-semibold text-gray-900">
+                    <span className="text-sm font-semibold text-gray-100">
                       {comment.name}
                     </span>
                     <span className="text-sm text-gray-400">
@@ -286,7 +286,7 @@ export function ProductComments({ productId }: { productId: string }) {
                   </div>
 
                   {/* Text */}
-                  <p className="mt-3 text-sm leading-relaxed text-gray-600">
+                  <p className="mt-3 text-sm leading-relaxed text-gray-400">
                     {comment.text}
                   </p>
 

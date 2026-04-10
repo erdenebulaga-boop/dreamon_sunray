@@ -86,19 +86,19 @@ export default function productCard({
       {/* Product info */}
       <div className="mt-4 flex flex-col gap-1.5">
         {brand && (
-          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-[#8B7340]">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-gold">
             {brand}
           </p>
         )}
         {name && (
           link ? (
             <a href={link}>
-              <h3 className="text-base font-medium leading-snug text-gray-900 line-clamp-2 transition-colors duration-200 group-hover:text-[#0B1D3A]">
+              <h3 className="text-base font-medium leading-snug text-gray-100 line-clamp-2 transition-colors duration-200 group-hover:text-[#0B1D3A]">
                 {name}
               </h3>
             </a>
           ) : (
-            <h3 className="text-base font-medium leading-snug text-gray-900 line-clamp-2">
+            <h3 className="text-base font-medium leading-snug text-gray-100 line-clamp-2">
               {name}
             </h3>
           )

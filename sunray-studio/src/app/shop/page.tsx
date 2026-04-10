@@ -72,7 +72,7 @@ function ShopContent() {
     <div className="mx-auto max-w-7xl px-6 py-10 md:px-12 md:py-16">
       {/* Page header */}
       <FadeIn className="mb-10">
-        <h1 className="font-display text-3xl font-semibold text-navy md:text-4xl">
+        <h1 className="font-display text-3xl font-semibold text-gray-100 md:text-4xl">
           {activeCategory === "all"
             ? "Бүх бүтээгдэхүүн"
             : activeSubcategory
@@ -82,7 +82,7 @@ function ShopContent() {
                 })()
               : categories[activeCategory].name}
         </h1>
-        <p className="mt-2 text-sm text-gray-500">
+        <p className="mt-2 text-sm text-gray-400">
           {filtered.length} бүтээгдэхүүн
         </p>
       </FadeIn>
@@ -91,7 +91,7 @@ function ShopContent() {
       <div className="mb-10 flex flex-col gap-4">
         <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <Select value={sortBy} onValueChange={setSortBy}>
-            <SelectTrigger className="order-first md:order-last h-10 min-w-[180px] w-fit rounded-full border border-gray-200 bg-white px-5 text-sm tracking-wide text-gray-600 shadow-none focus-visible:ring-gold/30">
+            <SelectTrigger className="order-first md:order-last h-10 min-w-[180px] w-fit rounded-full border border-white/20 bg-white/10 px-5 text-sm tracking-wide text-gray-300 shadow-none focus-visible:ring-gold/30">
               <SelectValue placeholder="Эрэмбэлэх" />
             </SelectTrigger>
             <SelectContent className="rounded-2xl border border-gray-100 bg-white/95 backdrop-blur-xl p-1.5 shadow-xl shadow-black/[0.08]">
@@ -107,7 +107,7 @@ function ShopContent() {
               className={`min-h-[44px] flex-shrink-0 rounded-full px-6 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                 activeCategory === "all"
                   ? "bg-navy text-white"
-                  : "border border-gray-200 bg-white text-gray-600 hover:border-navy/30 hover:text-navy"
+                  : "border border-white/20 bg-white/5 text-gray-400 hover:border-gold/30 hover:text-white"
               }`}
               onClick={() => { setActiveCategory("all"); setActiveSubcategory(null); }}
             >
@@ -119,7 +119,7 @@ function ShopContent() {
                 className={`min-h-[44px] flex-shrink-0 rounded-full px-6 text-sm font-medium uppercase tracking-wider transition-all duration-300 ${
                   activeCategory === key
                     ? "bg-navy text-white"
-                    : "border border-gray-200 bg-white text-gray-600 hover:border-navy/30 hover:text-navy"
+                    : "border border-white/20 bg-white/5 text-gray-400 hover:border-gold/30 hover:text-white"
                 }`}
                 onClick={() => { setActiveCategory(key); setActiveSubcategory(null); }}
               >
@@ -138,7 +138,7 @@ function ShopContent() {
                 className={`min-h-[36px] flex-shrink-0 rounded-full px-5 text-sm font-medium tracking-wide transition-all duration-300 flex items-center gap-1.5 ${
                   activeSubcategory === sub.key
                     ? "bg-navy text-white"
-                    : "border border-gray-200 bg-white text-gray-500 hover:border-navy/30 hover:text-navy"
+                    : "border border-white/20 bg-white/5 text-gray-400 hover:border-gold/30 hover:text-white"
                 }`}
                 onClick={() => setActiveSubcategory(activeSubcategory === sub.key ? null : sub.key)}
               >

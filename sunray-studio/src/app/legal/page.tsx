@@ -38,7 +38,7 @@ export default function LegalPage() {
             className={`flex-shrink-0 rounded-full px-5 py-2.5 text-xs font-medium tracking-wide transition-all ${
               activeTab === tab.key
                 ? "bg-navy text-white"
-                : "border border-gray-200 text-gray-600 hover:border-navy/30 hover:text-navy"
+                : "border border-white/20 text-gray-400 hover:border-gold/30 hover:text-white"
             }`}
           >
             {tab.label}
@@ -47,18 +47,18 @@ export default function LegalPage() {
       </div>
 
       {/* Content */}
-      <div className="mt-8 space-y-6 text-sm leading-relaxed text-gray-600">
+      <div className="mt-8 space-y-6 text-sm leading-relaxed text-gray-400">
         {activeTab === "terms" && (
           <>
             <section>
-              <h2 className="text-lg font-semibold text-navy">1. Ерөнхий нөхцөл</h2>
+              <h2 className="text-lg font-semibold text-gray-100">1. Ерөнхий нөхцөл</h2>
               <p className="mt-3">
                 Энэхүү вэбсайтыг ашигласнаар та дараах үйлчилгээний нөхцлийг хүлээн зөвшөөрч
                 байна. Sunray Studio нь бүтээгдэхүүн, үнэ, хүргэлтийн нөхцлийг өөрчлөх эрхтэй.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">2. Захиалга & Төлбөр</h2>
+              <h2 className="text-lg font-semibold text-gray-100">2. Захиалга & Төлбөр</h2>
               <p className="mt-3">
                 Захиалга баталгаажсаны дараа төлбөр нэхэмжлэгдэнэ. QPay, картаар болон зээлийн
                 үйлчилгээгээр төлбөр хийх боломжтой. Захиалга баталгаажсан тохиолдолд
@@ -66,14 +66,14 @@ export default function LegalPage() {
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">3. Хүргэлт</h2>
+              <h2 className="text-lg font-semibold text-gray-100">3. Хүргэлт</h2>
               <p className="mt-3">
                 Улаанбаатар хот дотор 1-3 өдрийн дотор хүргэнэ. Хөдөө орон нутагт 3-7 өдрийн
                 дотор хүргэнэ. 100,000₮-с дээш захиалгад хүргэлт үнэгүй.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">4. Хариуцлагын хязгаарлалт</h2>
+              <h2 className="text-lg font-semibold text-gray-100">4. Хариуцлагын хязгаарлалт</h2>
               <p className="mt-3">
                 Sunray Studio нь бүтээгдэхүүний чанар, найрлага, хадгалалтын нөхцлийг
                 баримталсан тохиолдолд бүрэн хариуцна. Хэрэглэгч өөрийн буруутай ашигласнаас
@@ -86,28 +86,28 @@ export default function LegalPage() {
         {activeTab === "privacy" && (
           <>
             <section>
-              <h2 className="text-lg font-semibold text-navy">1. Хувийн мэдээлэл цуглуулах</h2>
+              <h2 className="text-lg font-semibold text-gray-100">1. Хувийн мэдээлэл цуглуулах</h2>
               <p className="mt-3">
                 Бид таны нэр, утас, и-мэйл, хүргэлтийн хаяг зэрэг мэдээллийг захиалга
                 боловсруулах зорилгоор цуглуулна. Энэ мэдээллийг гуравдагч талд дамжуулахгүй.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">2. Мэдээлэл хадгалах</h2>
+              <h2 className="text-lg font-semibold text-gray-100">2. Мэдээлэл хадгалах</h2>
               <p className="mt-3">
                 Таны мэдээлэл аюулгүй серверт хадгалагдана. Нууц үг нь шифрлэгдсэн хэлбэрээр
                 хадгалагдах бөгөөд бид таны нууц үгийг харах боломжгүй.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">3. Күүки (Cookie)</h2>
+              <h2 className="text-lg font-semibold text-gray-100">3. Күүки (Cookie)</h2>
               <p className="mt-3">
                 Вэбсайт нь хэрэглэгчийн туршлагыг сайжруулахын тулд күүки ашиглана. Та
                 хөтчийн тохиргоогоор күүки идэвхгүй болгох боломжтой.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">4. Мэдээлэл устгах</h2>
+              <h2 className="text-lg font-semibold text-gray-100">4. Мэдээлэл устгах</h2>
               <p className="mt-3">
                 Та хүссэн үедээ хувийн мэдээллээ устгуулах хүсэлт гаргах боломжтой. Бидэнтэй
                 info@sunray.mn хаягаар холбогдоно уу.
@@ -119,28 +119,28 @@ export default function LegalPage() {
         {activeTab === "return" && (
           <>
             <section>
-              <h2 className="text-lg font-semibold text-navy">1. Буцаалтын нөхцөл</h2>
+              <h2 className="text-lg font-semibold text-gray-100">1. Буцаалтын нөхцөл</h2>
               <p className="mt-3">
                 Бүтээгдэхүүнийг хүлээн авснаас хойш 7 хоногийн дотор буцаах боломжтой.
                 Бүтээгдэхүүн задлагдаагүй, ашиглагдаагүй байх шаардлагатай.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">2. Буцаалт хийх журам</h2>
+              <h2 className="text-lg font-semibold text-gray-100">2. Буцаалт хийх журам</h2>
               <p className="mt-3">
                 Буцаалт хийхийн тулд info@sunray.mn хаягт захиалгын дугаар, шалтгааны хамт
                 хүсэлт илгээнэ үү. Бид 24 цагийн дотор хариу өгнө.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">3. Буцаан олголт</h2>
+              <h2 className="text-lg font-semibold text-gray-100">3. Буцаан олголт</h2>
               <p className="mt-3">
                 Буцаалт зөвшөөрөгдсөн тохиолдолд 3-5 ажлын өдрийн дотор мөнгийг буцаан
                 шилжүүлнэ. Шилжүүлэг таны анхны төлсөн хэлбэрээр хийгдэнэ.
               </p>
             </section>
             <section>
-              <h2 className="text-lg font-semibold text-navy">4. Буцаах боломжгүй тохиолдол</h2>
+              <h2 className="text-lg font-semibold text-gray-100">4. Буцаах боломжгүй тохиолдол</h2>
               <p className="mt-3">
                 Задалсан, ашигласан бүтээгдэхүүн буцаах боломжгүй. Хямдралтай бүтээгдэхүүний
                 буцаалт тухай бүр шийдвэрлэгдэнэ.
@@ -151,9 +151,9 @@ export default function LegalPage() {
       </div>
 
       {/* Contact */}
-      <div className="mt-12 rounded-2xl border border-gray-100 bg-white p-6">
-        <p className="text-sm font-semibold text-navy">Асуулт байна уу?</p>
-        <p className="mt-1 text-sm text-gray-500">
+      <div className="mt-12 rounded-2xl border border-white/10 bg-white/5 p-6">
+        <p className="text-sm font-semibold text-gray-100">Асуулт байна уу?</p>
+        <p className="mt-1 text-sm text-gray-400">
           Бидэнтэй{" "}
           <a href="mailto:info@sunray.mn" className="font-medium text-gold hover:underline">
             info@sunray.mn

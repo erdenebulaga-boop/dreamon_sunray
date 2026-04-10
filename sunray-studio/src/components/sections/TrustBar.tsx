@@ -12,7 +12,7 @@ const badges = [
 
 export function TrustBar() {
   return (
-    <section className="border-b border-gray-100 bg-white">
+    <section className="border-b border-white/10 bg-[#111827]">
       <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-8 md:grid-cols-4 md:gap-8 md:px-12 md:py-10">
         {badges.map((badge, i) => {
           const Icon = badge.icon;
@@ -22,7 +22,7 @@ export function TrustBar() {
                 <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full border border-gold/20 bg-gold/5">
                   <Icon className="h-5 w-5 text-gold" strokeWidth={1.5} />
                 </div>
-                <span className="text-sm font-medium leading-tight text-gray-900">
+                <span className="text-sm font-medium leading-tight text-gray-100">
                   {badge.label}
                 </span>
               </div>

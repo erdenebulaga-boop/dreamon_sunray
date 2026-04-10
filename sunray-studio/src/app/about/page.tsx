@@ -47,7 +47,7 @@ export default function AboutPage() {
       </section>
 
       {/* Ерөнхий мэдээлэл — image left, text right */}
-      <section className="py-20 md:py-28">
+      <section className="bg-[#111827] py-20 md:py-25">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 items-center gap-16 md:grid-cols-2">
             <div className="relative">
@@ -61,22 +61,22 @@ export default function AboutPage() {
                 />
               </div>
               {/* Floating stat card */}
-              <div className="absolute -bottom-6 -right-4 rounded-2xl bg-white p-5 shadow-xl md:-right-8">
+              <div className="absolute -bottom-6 -right-4 rounded-2xl bg-[#1F2937] p-5 shadow-xl border border-white/10 md:-right-8">
                 <p className="font-display text-3xl font-bold text-gold">9+</p>
-                <p className="mt-1 text-sm font-medium text-gray-500">Жилийн туршлага</p>
+                <p className="mt-1 text-sm font-medium text-gray-400">Жилийн туршлага</p>
               </div>
             </div>
             <div>
               <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
                 Бидний тухай
               </span>
-              <h2 className="mt-3 font-display text-3xl font-semibold text-gray-900 md:text-4xl">
+              <h2 className="mt-3 font-display text-3xl font-semibold text-gray-100 md:text-4xl">
                 Ерөнхий мэдээлэл
               </h2>
-              <p className="mt-6 text-base leading-relaxed text-gray-600">
+              <p className="mt-6 text-base leading-relaxed text-gray-400">
                 &ldquo;Санрэй студи&rdquo; ХХК нь 2015 онд монгол улсынхаа хэрэглэгчдэд олон улсын дэвшилтэт гоо сайхны технологи, эмчилгээний бүтээгдэхүүнийг хүргэж, үр дүнд суурилсан мэргэжлийн үйлчилгээ үзүүлэх эрхэм зорилготойгоор үүсгэн байгуулагдсан. Санрэй салоноор дамжуулан өнөөдрийг хүртэл гоо сайхны цогц үйлчилгээг бүсгүйчүүдэд хүргэсээр ирсэн.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-gray-600">
+              <p className="mt-4 text-base leading-relaxed text-gray-400">
                 Манай компани нь арьс, үс, хумсны мэргэжлийн үйлчилгээ, гоо сайхны бараа бүтээгдэхүүний импорт худалдаа, бие галбиржуулах цогц үйлчилгээ, гоо сайхны сургалт, зөвлөгөө зэрэг чиглэлүүдээр үйл ажиллагаа явуулдаг. Чанар, итгэл, ёс зүй, үр дүнг үнэт зүйлээ болгон үйл ажиллагаагаа явуулж байна.
               </p>
               <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -86,9 +86,9 @@ export default function AboutPage() {
                   { icon: Users, text: "Бие галбиржуулах үйлчилгээ" },
                   { icon: Award, text: "Гоо сайхны сургалт, зөвлөгөө" },
                 ].map((item) => (
-                  <div key={item.text} className="flex items-start gap-3 rounded-xl bg-cream/50 p-4">
+                  <div key={item.text} className="flex items-start gap-3 rounded-xl bg-white/5 p-4">
                     <item.icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-                    <span className="text-sm font-medium text-gray-700">{item.text}</span>
+                    <span className="text-sm font-medium text-gray-300">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -143,12 +143,12 @@ export default function AboutPage() {
       </section>
 
       {/* Үйл ажиллагааны чиглэлүүд — icon grid */}
-      <section className="py-20 md:py-28">
+      <section className="bg-[#111827] py-20 md:py-25">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
             Үйлчилгээ
           </span>
-          <h2 className="mt-3 font-display text-3xl font-semibold text-gray-900 md:text-4xl">
+          <h2 className="mt-3 font-display text-3xl font-semibold text-gray-100 md:text-4xl">
             Үйл ажиллагааны үндсэн чиглэлүүд
           </h2>
           <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -159,29 +159,29 @@ export default function AboutPage() {
               { icon: Zap, title: "Гэрийн төхөөрөмж", desc: "K•Skin Home Devices" },
               { icon: Users, title: "Сургалт ба зөвлөгөө", desc: "Мэргэжлийн гоо сайхны сургалт" },
             ].map((item) => (
-              <div key={item.title} className="group rounded-2xl border border-gray-100 p-6 transition-all duration-300 hover:border-gold/30 hover:shadow-lg">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-cream transition-colors duration-300 group-hover:bg-gold/10">
+              <div key={item.title} className="group rounded-2xl border border-white/10 p-6 transition-all duration-300 hover:border-gold/30 hover:shadow-lg">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 transition-colors duration-300 group-hover:bg-gold/10">
                   <item.icon className="h-5 w-5 text-gold" />
                 </div>
-                <h3 className="mt-4 text-base font-semibold text-gray-900">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-gray-500">{item.desc}</p>
+                <h3 className="mt-4 text-base font-semibold text-gray-100">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-400">{item.desc}</p>
               </div>
             ))}
           </div>
 
           {/* Media & Awards */}
-          <div className="mt-16 rounded-2xl bg-cream/50 p-8 md:p-10">
+          <div className="mt-16 rounded-2xl bg-white/5 border border-white/10 p-8 md:p-10">
             <div className="flex items-start gap-4">
               <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-gold/10">
                 <Award className="h-5 w-5 text-gold" />
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900">Амжилт, хамтын ажиллагаа</h3>
-                <p className="mt-3 text-base leading-relaxed text-gray-600">
+                <h3 className="text-lg font-semibold text-gray-100">Амжилт, хамтын ажиллагаа</h3>
+                <p className="mt-3 text-base leading-relaxed text-gray-400">
                   9 жилийн хугацаанд Монголын уран бүтээлчид, модель миссүүдийг өөрийн салоны нүүр царай болгон гоо сайхны үйлчилгээнийхээ бодит үр дүнг танилцуулж, МҮОНТВ, HD Монгол, ТV-5 зэрэг телевизийн сувгуудаар тогтмол хүргэж ирсэн.
                 </p>
-                <p className="mt-3 text-base leading-relaxed text-gray-600">
-                  &ldquo;Best of Mongolia&rdquo; олон нийтийн санал асуулгаар <span className="font-semibold text-gray-900">2014, 2015, 2016, 2018</span> онуудад оны шилдэг гоо сайхны салоноор шалгарсан.
+                <p className="mt-3 text-base leading-relaxed text-gray-400">
+                  &ldquo;Best of Mongolia&rdquo; олон нийтийн санал асуулгаар <span className="font-semibold text-white">2014, 2015, 2016, 2018</span> онуудад оны шилдэг гоо сайхны салоноор шалгарсан.
                 </p>
               </div>
             </div>
@@ -190,7 +190,7 @@ export default function AboutPage() {
       </section>
 
       {/* Тохирлын гэрчилгээ + Гадаад хамтын ажиллагаа */}
-      <section className="bg-gray-50 py-20 md:py-28">
+      <section className="bg-[#0D1520] py-20 md:py-25">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
             {/* Гэрчилгээ */}
@@ -198,10 +198,10 @@ export default function AboutPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10">
                 <Shield className="h-5 w-5 text-gold" />
               </div>
-              <h2 className="mt-5 font-display text-2xl font-semibold text-gray-900 md:text-3xl">
+              <h2 className="mt-5 font-display text-2xl font-semibold text-gray-100 md:text-3xl">
                 Тохирлын гэрчилгээ
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-gray-600">
+              <p className="mt-4 text-base leading-relaxed text-gray-400">
                 2026 онд манай байгууллага нь холбогдох хууль, стандартын шаардлагыг бүрэн хангаж, эрх бүхий байгууллагаас олгосон тохирлын гэрчилгээтэй болсон:
               </p>
               <ul className="mt-6 space-y-4">
@@ -212,7 +212,7 @@ export default function AboutPage() {
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-                    <span className="text-base leading-relaxed text-gray-600">{item}</span>
+                    <span className="text-base leading-relaxed text-gray-400">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -222,10 +222,10 @@ export default function AboutPage() {
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10">
                 <Handshake className="h-5 w-5 text-gold" />
               </div>
-              <h2 className="mt-5 font-display text-2xl font-semibold text-gray-900 md:text-3xl">
+              <h2 className="mt-5 font-display text-2xl font-semibold text-gray-100 md:text-3xl">
                 Гадаад хамтын ажиллагаа
               </h2>
-              <p className="mt-4 text-base leading-relaxed text-gray-600">
+              <p className="mt-4 text-base leading-relaxed text-gray-400">
                 Sunray Salon нь Солонгос, Хятад улсуудаас гоо сайхны брэндүүдийг албан ёсоор импортлон худалдаалдаг.
               </p>
               <div className="mt-6 space-y-3">
@@ -234,11 +234,11 @@ export default function AboutPage() {
                   { country: "БНХАУ", brand: "Keep Kiss, K•Skin Home Devices" },
                   { country: "БНХАУ", brand: "Hair Care Line" },
                 ].map((item) => (
-                  <div key={item.brand} className="flex items-center gap-4 rounded-xl bg-white p-4 shadow-sm">
+                  <div key={item.brand} className="flex items-center gap-4 rounded-xl bg-white/5 border border-white/10 p-4">
                     <span className="flex-shrink-0 rounded-lg bg-gold/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-gold">
                       {item.country}
                     </span>
-                    <span className="text-sm font-medium text-gray-700">{item.brand}</span>
+                    <span className="text-sm font-medium text-gray-300">{item.brand}</span>
                   </div>
                 ))}
               </div>
@@ -248,12 +248,12 @@ export default function AboutPage() {
       </section>
 
       {/* Үйлчилгээний онцлог + Давуу тал — side by side */}
-      <section className="py-20 md:py-28">
+      <section className="bg-[#111827] py-20 md:py-25">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 gap-16 md:grid-cols-2">
             <div>
               <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">Онцлог</span>
-              <h2 className="mt-3 font-display text-2xl font-semibold text-gray-900 md:text-3xl">
+              <h2 className="mt-3 font-display text-2xl font-semibold text-gray-100 md:text-3xl">
                 Манай үйлчилгээний онцлог
               </h2>
               <ul className="mt-8 space-y-4">
@@ -265,14 +265,14 @@ export default function AboutPage() {
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-                    <span className="text-base leading-relaxed text-gray-600">{item}</span>
+                    <span className="text-base leading-relaxed text-gray-400">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div>
               <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">Давуу тал</span>
-              <h2 className="mt-3 font-display text-2xl font-semibold text-gray-900 md:text-3xl">
+              <h2 className="mt-3 font-display text-2xl font-semibold text-gray-100 md:text-3xl">
                 Яагаад биднийг сонгох вэ?
               </h2>
               <ul className="mt-8 space-y-4">
@@ -284,7 +284,7 @@ export default function AboutPage() {
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-                    <span className="text-base leading-relaxed text-gray-600">{item}</span>
+                    <span className="text-base leading-relaxed text-gray-400">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -294,15 +294,15 @@ export default function AboutPage() {
       </section>
 
       {/* Зорилтот хэрэглэгчид + Борлуулалтын сувгууд — cards */}
-      <section className="bg-cream/30 py-20 md:py-28">
+      <section className="bg-[#0D1520] py-20 md:py-25">
         <div className="mx-auto max-w-7xl px-6 md:px-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {/* Зорилтот хэрэглэгчид */}
-            <div className="rounded-3xl bg-white p-8 shadow-sm md:p-10">
+            <div className="rounded-3xl bg-white/5 border border-white/10 p-8 md:p-10">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10">
                 <Users className="h-5 w-5 text-gold" />
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-gray-900">Зорилтот хэрэглэгчид</h3>
+              <h3 className="mt-5 text-xl font-semibold text-gray-100">Зорилтот хэрэглэгчид</h3>
               <ul className="mt-6 space-y-3">
                 {[
                   "Эмзэг, хуурай, өнгөө алдсан арьстай хэрэглэгчид",
@@ -310,7 +310,7 @@ export default function AboutPage() {
                   "Гоо сайхны бизнес эрхлэгч, сургалтад хамрагдагсад",
                   "Home care бүтээгдэхүүн сонирхогчид",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base text-gray-600">
+                  <li key={item} className="flex items-start gap-3 text-base text-gray-400">
                     <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-gold" />
                     {item}
                   </li>
@@ -318,20 +318,20 @@ export default function AboutPage() {
               </ul>
             </div>
             {/* Борлуулалтын сувгууд */}
-            <div className="rounded-3xl bg-white p-8 shadow-sm md:p-10">
+            <div className="rounded-3xl bg-white/5 border border-white/10 p-8 md:p-10">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10">
                 <TrendingUp className="h-5 w-5 text-gold" />
               </div>
-              <h3 className="mt-5 text-xl font-semibold text-gray-900">Борлуулалтын сувгууд</h3>
+              <h3 className="mt-5 text-xl font-semibold text-gray-100">Борлуулалтын сувгууд</h3>
               <div className="mt-6 space-y-4">
                 {[
                   { icon: Store, text: "Салонд худалдаа" },
                   { icon: Smartphone, text: "Онлайн платформууд (Facebook, Instagram, www.sunray.mn)" },
                   { icon: MapPinned, text: "19 аймагт гэрээт борлуулагчидтай" },
                 ].map((item) => (
-                  <div key={item.text} className="flex items-start gap-3 rounded-xl bg-cream/50 p-4">
+                  <div key={item.text} className="flex items-start gap-3 rounded-xl bg-white/5 p-4">
                     <item.icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-gold" />
-                    <span className="text-sm font-medium text-gray-700">{item.text}</span>
+                    <span className="text-sm font-medium text-gray-300">{item.text}</span>
                   </div>
                 ))}
               </div>
