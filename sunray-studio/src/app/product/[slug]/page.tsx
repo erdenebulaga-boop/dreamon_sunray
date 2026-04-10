@@ -82,17 +82,17 @@ export default function ProductPage({
       {/* Breadcrumb */}
       <FadeIn>
         <div className="hidden md:flex items-center gap-2 text-sm text-gray-400">
-          <Link href="/" className="transition-colors hover:text-navy">
+          <Link href="/" className="transition-colors hover:text-white">
             Нүүр
           </Link>
           <span>/</span>
-          <Link href="/shop" className="transition-colors hover:text-navy">
+          <Link href="/shop" className="transition-colors hover:text-white">
             Дэлгүүр
           </Link>
           <span>/</span>
           <Link
             href={`/shop?category=${product.category}`}
-            className="transition-colors hover:text-navy"
+            className="transition-colors hover:text-white"
           >
             {categoryLabel}
           </Link>
@@ -191,7 +191,7 @@ export default function ProductPage({
             </p>
 
             {/* Name */}
-            <h1 className="mt-2 font-display text-2xl font-semibold text-navy md:text-3xl">
+            <h1 className="mt-2 font-display text-2xl font-semibold text-[#e9eeff] md:text-3xl">
               {product.name}
             </h1>
 
@@ -213,7 +213,7 @@ export default function ProductPage({
                 </>
               ) : (
                 <>
-                  <span className="font-display text-2xl font-bold text-navy">
+                  <span className="font-display text-2xl font-bold text-[#e9eeff]">
                     {formatPrice(product.price)}
                   </span>
                   {product.originalPrice && (
@@ -237,7 +237,7 @@ export default function ProductPage({
                   Хэмжээ
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2">
-                  <button className="min-h-[40px] rounded-xl border-2 border-navy bg-navy/5 px-5 text-sm font-medium text-navy">
+                  <button className="min-h-[40px] rounded-xl border-2 border-navy bg-navy/5 px-5 text-sm font-medium text-[#e9eeff]">
                     {product.size}
                   </button>
                 </div>
@@ -250,16 +250,16 @@ export default function ProductPage({
               <div className="flex h-12 items-center rounded-xl border border-white/20">
                 <button
                   onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  className="flex h-full w-11 items-center justify-center text-gray-500 transition-colors hover:text-navy"
+                  className="flex h-full w-11 items-center justify-center text-gray-500 transition-colors hover:text-white"
                 >
                   <Minus className="h-4 w-4" />
                 </button>
-                <span className="w-10 text-center text-sm font-semibold text-navy">
+                <span className="w-10 text-center text-sm font-semibold text-[#e9eeff]">
                   {quantity}
                 </span>
                 <button
                   onClick={() => setQuantity((q) => q + 1)}
-                  className="flex h-full w-11 items-center justify-center text-gray-500 transition-colors hover:text-navy"
+                  className="flex h-full w-11 items-center justify-center text-gray-500 transition-colors hover:text-white"
                 >
                   <Plus className="h-4 w-4" />
                 </button>
@@ -422,7 +422,7 @@ export default function ProductPage({
                       key={tab.key}
                       onClick={() => setActiveTab(tab.key)}
                       className={`relative whitespace-nowrap border-0 bg-transparent px-6 py-4 text-base font-medium outline-none transition-colors focus:outline-none focus-visible:outline-none ${
-                        activeTab === tab.key ? "text-navy" : "text-gray-400 hover:text-gray-600"
+                        activeTab === tab.key ? "text-[#e9eeff]" : "text-gray-400 hover:text-gray-600"
                       }`}
                     >
                       {tab.label}
@@ -476,7 +476,7 @@ export default function ProductPage({
             <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
               Танд бас таалагдах
             </span>
-            <h2 className="mt-2 font-display text-2xl font-semibold text-navy md:text-3xl">
+            <h2 className="mt-2 font-display text-2xl font-semibold text-[#e9eeff] md:text-3xl">
               Онцлох бараа
             </h2>
           </FadeIn>

@@ -109,7 +109,7 @@ export function ProductCard({ product }: { product: Product }) {
           {product.brand}
         </p>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="text-base font-medium leading-snug text-gray-100 line-clamp-2">
+          <h3 className="text-base font-medium leading-snug !text-[#e9eeff] line-clamp-2">
             {product.name}
           </h3>
         </Link>
@@ -125,7 +125,7 @@ export function ProductCard({ product }: { product: Product }) {
             </>
           ) : (
             <>
-              <span className="text-lg font-bold text-navy">
+              <span className="text-lg font-bold text-[#e9eeff]">
                 {formatPrice(product.price)}
               </span>
               {product.originalPrice && (

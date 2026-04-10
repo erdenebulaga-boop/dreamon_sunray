@@ -309,7 +309,7 @@ export default function CheckoutPage() {
         <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gray-50">
           <ShoppingBag className="h-8 w-8 text-gray-300" />
         </div>
-        <h1 className="mt-6 font-display text-2xl font-semibold text-navy">
+        <h1 className="mt-6 font-display text-2xl font-semibold text-[#e9eeff]">
           Сагс хоосон байна
         </h1>
         <p className="mt-2 text-sm text-gray-500">Захиалга өгөхийн өмнө бүтээгдэхүүн нэмнэ үү.</p>
@@ -336,7 +336,7 @@ export default function CheckoutPage() {
             <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-50">
               <CheckCircle2 className="h-8 w-8 text-green-600" />
             </div>
-            <h1 className="mt-4 font-display text-2xl font-semibold text-navy md:text-3xl">
+            <h1 className="mt-4 font-display text-2xl font-semibold text-[#e9eeff] md:text-3xl">
               Захиалга амжилттай!
             </h1>
             <p className="mt-2 max-w-md text-sm leading-relaxed text-gray-500">
@@ -507,12 +507,12 @@ export default function CheckoutPage() {
         <Link
           href="#"
           onClick={(e) => { e.preventDefault(); window.history.back(); }}
-          className="inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-navy"
+          className="inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-white"
         >
           <ArrowLeft className="h-4 w-4" />
           Сагс руу буцах
         </Link>
-        <h1 className="mt-4 font-display text-3xl font-semibold text-navy md:text-4xl">
+        <h1 className="mt-4 font-display text-3xl font-semibold text-[#e9eeff] md:text-4xl">
           Захиалга
         </h1>
       </FadeIn>

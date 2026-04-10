@@ -31,7 +31,7 @@ export default function Error({
         <span className="font-display text-4xl font-bold text-red-500">500</span>
       </div>
 
-      <h1 className="mt-6 font-display text-2xl font-semibold text-navy md:text-3xl">
+      <h1 className="mt-6 font-display text-2xl font-semibold text-[#e9eeff] md:text-3xl">
         Алдаа гарлаа
       </h1>
       <p className="mt-3 max-w-md text-sm leading-relaxed text-gray-500">

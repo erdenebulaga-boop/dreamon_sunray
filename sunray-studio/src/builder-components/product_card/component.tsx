@@ -93,12 +93,12 @@ export default function productCard({
         {name && (
           link ? (
             <a href={link}>
-              <h3 className="text-base font-medium leading-snug text-gray-100 line-clamp-2 transition-colors duration-200 group-hover:text-[#0B1D3A]">
+              <h3 className="text-base font-medium leading-snug text-[#e9eeff] line-clamp-2 transition-colors duration-200 group-hover:text-[#0B1D3A]">
                 {name}
               </h3>
             </a>
           ) : (
-            <h3 className="text-base font-medium leading-snug text-gray-100 line-clamp-2">
+            <h3 className="text-base font-medium leading-snug text-[#e9eeff] line-clamp-2">
               {name}
             </h3>
           )

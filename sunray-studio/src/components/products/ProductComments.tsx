@@ -147,7 +147,7 @@ export function ProductComments({ productId }: { productId: string }) {
             <span className="text-sm font-medium uppercase tracking-[0.2em] text-gold">
               Сэтгэгдэл
             </span>
-            <h2 className="mt-2 font-display text-2xl font-semibold text-navy md:text-3xl">
+            <h2 className="mt-2 font-display text-2xl font-semibold text-[#e9eeff] md:text-3xl">
               Хэрэглэгчдийн сэтгэгдэл
             </h2>
             <div className="mt-3 flex items-center gap-3">
@@ -183,7 +183,7 @@ export function ProductComments({ productId }: { productId: string }) {
             onSubmit={handleSubmit}
             className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 md:p-8"
           >
-            <h3 className="text-base font-semibold text-navy">
+            <h3 className="text-base font-semibold text-[#e9eeff]">
               Сэтгэгдэл үлдээх
             </h3>
 
@@ -265,7 +265,7 @@ export function ProductComments({ productId }: { productId: string }) {
             <div key={comment.id} className="py-6 first:pt-0">
               <div className="flex items-start gap-4">
                 {/* Avatar */}
-                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-navy/5 text-navy">
+                <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-navy/5 text-[#e9eeff]">
                   <User className="h-4.5 w-4.5" />
                 </div>
 
@@ -295,7 +295,7 @@ export function ProductComments({ productId }: { productId: string }) {
                     onClick={() => toggleLike(comment.id)}
                     className={`mt-3 flex items-center gap-1.5 text-xs font-medium transition-colors ${
                       comment.liked
-                        ? "text-navy"
+                        ? "text-[#e9eeff]"
                         : "text-gray-400 hover:text-gray-600"
                     }`}
                   >

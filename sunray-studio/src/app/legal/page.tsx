@@ -19,13 +19,13 @@ export default function LegalPage() {
     <div className="mx-auto max-w-3xl px-6 py-10 md:px-12 md:py-16">
       <Link
         href="/"
-        className="inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-navy"
+        className="inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-white"
       >
         <ArrowLeft className="h-4 w-4" />
         Нүүр хуудас
       </Link>
 
-      <h1 className="mt-4 font-display text-3xl font-semibold text-navy md:text-4xl">
+      <h1 className="mt-4 font-display text-3xl font-semibold text-[#e9eeff] md:text-4xl">
         Хууль эрх зүй
       </h1>
 
